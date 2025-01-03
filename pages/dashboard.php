@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
@@ -14,7 +14,7 @@ if ($user->ROEL === "USER") {
     echo "مرحبًا، مستخدم!";
 } elseif ($user->ROEL === "ADMIN") {
     // منطق المسؤول
-    include 'coustmer.php';
+    include 'admin.php';
     echo "مرحبًا، مسؤول!";
 } elseif ($user->ROEL === "coust") {
     // منطق العميل

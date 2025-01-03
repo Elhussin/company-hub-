@@ -1,8 +1,9 @@
+<?php
+session_start();
+?>
 <?php 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/company/config.php';
 // nav.php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/company/config.php';
-
 $siteName = "Company Hub";
 ?>
 <!DOCTYPE html>
@@ -21,35 +22,30 @@ $siteName = "Company Hub";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="apple-touch-icon" href="<?= ROOT_PATH ?>static/img/logo.webp" />
-    <title><?php echo $title; ?></title>
+    <!-- <title><?php echo $title; ?></title> -->
+    <title><?php echo isset($title) ? $title : 'Default Title'; ?></title>
+
     <meta name="description" content="<?php echo $description; ?>">
 
 </head>
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
-            <!-- شعار الموقع -->
             <a class="navbar-brand" href="index.php?page=home">
                 <img src="<?= ROOT_PATH ?>static/img/logo.webp" alt="Logo" width="30" height="24">
             </a>
             <a class="navbar-brand" href="index.php?page=home"><?= $siteName ?></a>
 
-            <!-- زر التبديل لشاشات الجوال -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- روابط التنقل -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-flex flex-lg-row flex-column">
-
                     <li class="nav-item">
-
                         <a class="nav-link active" href="index.php?page=learn">Learning</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -68,14 +64,22 @@ $siteName = "Company Hub";
                     </li>
                 </ul>
 
-                <!-- خيارات اللغة وأزرار التسجيل -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-lg-flex flex-lg-row flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=login">Log In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=Register">Register</a>
-                    </li>
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=dashboard"">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=logout">Log Out</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=login">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=Register">Register</a>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <button class="btn btn-outline-success" type="button">EN</button>
                     </li>
@@ -83,4 +87,5 @@ $siteName = "Company Hub";
             </div>
         </div>
     </nav>
+
     <main >

@@ -1,6 +1,10 @@
 
 <?php 
+// session_start();
+ob_start();  // بدء التخزين المؤقت للمخرجات
+
 include_once 'config.php';
+
 // include_once 'pages/function.php';
 if (isset($_POST['login'])) {
     $login = $databass->prepare("SELECT * FROM `users` WHERE EMAIL=:EMAIL AND PASSWORD=:PASSWORD");
@@ -12,9 +16,22 @@ if (isset($_POST['login'])) {
         $user = $login->fetchObject();
 
         if ($user->ACTIEV === "1") {
-            $_SESSION['user'] = $user;
-            header("Location: pages/dashboard.php", true);
-            exit();
+     
+              $_SESSION['user'] = $user;
+                // $_SESSION['user'] = [
+                //     'name' => 'John Doe',
+                //     'role' => 'ADMIN', // أو USER حسب الدور
+                // ];
+                header("Location: index.php?page=dashboard");
+
+                exit();
+            
+     
+
+            // $_SESSION['user'] = $user;
+            // header("Location: pages/dashboard.php", true);
+
+            // exit();
         }
             
     } else {
@@ -23,6 +40,7 @@ if (isset($_POST['login'])) {
         </div>';
     }
 }
+ob_end_flush();  // إنهاء التخزين المؤقت للمخرجات بعد تنفيذ كل شيء
 
 ?>
 
@@ -57,9 +75,9 @@ if (isset($_POST['login'])) {
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="btn btn-primary "
-                                                type="submit" name="login">Log
-                                                in</button>
+                                        <button type="submit" class="btn btn-primary btn-block mb-4  w-50" name="login">
+                                        Log in </button>
+                       
                                             <a class="text-muted" href="index.php?page=reset" >Forgot password?</a>
                                         </div>
 
@@ -91,5 +109,6 @@ if (isset($_POST['login'])) {
             </div>
         </div>
     </section>
+
 
     
