@@ -1,0 +1,150 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.menu {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+.menu a {
+  background-color: #e5e5e5;
+  padding: 8px; 
+  margin-top: 7px;
+  display: block;
+   width: 100%;
+  color: black;
+}
+
+
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+}
+
+.right {
+  background-color: #e5e5e5;
+  float: left;
+  width: 20%;
+  padding: 15px;
+  margin-top: 7px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+
+
+
+
+
+/*    INDEX  HOME  BOOT STRAB */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.fa-twitter:before{
+  content:"\f099"
+}
+.fa-twitter-square:before{
+  content:"\f081"
+}
+
+.fab{
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;
+  display:var(--fa-display,inline-block);
+  font-style:normal;
+  font-variant:normal;
+  line-height:1;
+  text-rendering:auto
+}
+
+.fa-facebook:before{
+  content:"\f09a"
+}
+.fa-facebook-f:before{
+  content:"\f39e"
+}
+.fa-facebook-messenger:before{
+  content:"\f39f"
+}
+.fa-facebook-square:before{
+  content:"\f082"
+}
+
+
+.fa-google:before{
+  content:"\f1a0"
+}
+.fa-google-drive:before{
+  content:"\f3aa"
+}
+.fa-google-pay:before{
+  content:"\e079"
+}
+.fa-google-play:before{
+  content:"\f3ab"
+}
+.fa-google-plus:before{
+  content:"\f2b3"
+}
+.fa-google-plus-g:before{
+  content:"\f0d5"
+}
+.fa-google-plus-square:before{
+  content:"\f0d4"
+}
+.fa-google-wallet:before{
+  content:"\f1ee"
+}
+
+.fa-instagram:before{
+  content:"\f16d"
+}
+.fa-instagram-square:before{
+  content:"\e055"
+}
+
+.fa-linkedin:before{
+  content:"\f08c"
+}
+.fa-linkedin-in:before{
+  content:"\f0e1"
+}
+
+.fa-github:before{
+  content:"\f09b"
+}
+.fa-github-alt:before{
+  content:"\f113"
+}
+.fa-github-square:before{
+  content:"\f092"
+}
