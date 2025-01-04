@@ -37,7 +37,7 @@ if($activ->rowCount()>0){
     }
 
 }else{
-    echo '<div class="alert alert-danger"   role="alert" ><h5>  Did not find activeatin code </h5></div>';
+    echo '<div class="alert alert-danger"   role="alert" ><h1>  Did not find activeatin code </h1></div>';
         
 
  

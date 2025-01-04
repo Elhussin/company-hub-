@@ -1,22 +1,8 @@
 <?php
+include 'data.php';
 // تحديد الصفحة الحالية بناءً على GET
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
-// مصفوفة بيانات الصفحات
-$page_data = [
-    'home' => [
-        'title' => 'Company Hub',
-        'description' => 'An innovative application designed to streamline business management and enhance communication within teams across organizations.',
-    ],
-    'about' => [
-        'title' => 'About Us - CompanyHub',
-        'description' => 'Learn more about our company and the services we offer.',
-    ],
-    'contact' => [
-        'title' => 'Contact Us - CompanyHub',
-        'description' => 'Get in touch with us for any inquiries or support.',
-    ],
-];
 
 // التحقق من وجود بيانات الصفحة وإعداد القيم الافتراضية
 $title = isset($page_data[$page]['title']) ? $page_data[$page]['title'] : 'Company Hub';
@@ -27,13 +13,31 @@ include 'layout/header.php';
 ?>
 
 <?php
-// تضمين محتوى الصفحة
-$file = "pages/" . $page . ".php";
-if (file_exists($file)) {
-    include $file;
-} else {
+// تعريف المسارات الممكنة للبحث عن الملفات
+$paths = [
+    "pages/",
+    "components/",
+    "modules/"
+];
+
+// التحقق من وجود الملف في أحد المسارات
+$fileFound = false;
+foreach ($paths as $path) {
+    $file = $path . $page . ".php";
+    if (file_exists($file)) {
+        include $file;
+        $fileFound = true;
+        break;
+    }
+}
+
+// إذا لم يتم العثور على الملف، يتم تضمين صفحة الخطأ
+if (!$fileFound) {
     include "pages/404.php";
 }
+
+// تضمين تذييل الصفحة
+include 'layout/footer.php';
 ?>
 
-<?php include 'layout/footer.php'; ?>
+

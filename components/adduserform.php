@@ -131,12 +131,3 @@
         };
     }
     </script>
-
-
-
-</body>
-
-</html>
-
-
-<?php  include('../html/footer.html') ?>
