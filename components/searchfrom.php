@@ -1,126 +1,131 @@
+<STYle>
 
-<div class="container">
-<div class="row justify-content-md-center">
-    <div class="col col-lg-2  ">
-  <!-- <div class="row">
-    <div class="col"> -->
-        <!-- left box -->
+.container {
+    margin-bottom: 50px; /* أو أي قيمة تناسبك */
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    padding-bottom: 20px; /* أضف مساحة لتجنب التغطية */
+}
+
+.table {
+    overflow-x: auto; /* لإضافة شريط تمرير أفقي في الشاشات الصغيرة */
+}
+</STYle>
+
+<div class="container  mt-5" style="height: 100vh;">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto col-xxl">
+            <!-- Search Box -->
+            <div class="input-group mb-3">
+
+                <input type="text" id="search" class="form-control" placeholder="Enter search term">
+                <button id="Search" class="btn btn-outline-info" type="button">Search</button>
+                <button id="clear" class="btn btn-outline-info" type="button" onClick="clearSearch()">Clear</button>
+
+            </div>
+
+            <!-- Results Table -->
+            <table class="table" style="display:none" id="table">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Tell</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Emp. ID</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody"></tbody>
+            </table>
+
+            <!-- Live Update List -->
+            <div class="card">
+                <ul id="contant2" class="list-group list-group-flush"></ul>
+            </div>
+        </div>
     </div>
-    <div class="col-md-auto col-xxl">
-<div>
-        <!-- search box -->
-        <div class="input-group mb-3">
-        <button id="updata" class="btn btn-outline-secondary" type="button" id="button-addon1">search</button>
-
-  <input type="text" id="search" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-  <button id="clear"  value="Reload Page" onClick="document.location.reload(true)" class="btn btn-outline-secondary" type="button" id="button-addon1">Clear</button>
-
 </div>
 
-<!-- view search -->
-
-
-<table class="table"  style="display:none"  id="table">
-  <thead>
-    <tr class="table-dark">
-        <th scope="col">ID</th>
-        <th scope="col">Name </th>
-        <th scope="col">U.Name</th>
-        <th scope="col">Tell</th>
-        <th scope="col">Pasword</th>
-        <th scope="col">AGe</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Em.Id</th>
-        <th scope="col">Stata</th>
-      </tr>
-  </thead>
-  <tbody  id="t">
-</tbody>    
-</table>
-
-<script> 
-let search=document.getElementById("search");
-document.getElementById("updata").onclick=()=>{  
-let searchvalue= document.getElementById("search").value;
-
-
-if(searchvalue.length>1){
-fetch("api/search_api.php",{
-method: 'POSt',
-body :JSON.stringify({value:searchvalue}) // تحويل الي JISON
-})
-// تلقي الرد
-.then(response=>response.json()).then(
-data=>{
-data =data.reverse();   // لعكس النتائج
-    var td= document.getElementById("t");
-      var p = ""; 
-      td.innerHTML=p;
-data.forEach(element => {
-  
-if(element.EmpolyId.search(searchvalue) !=-1||element.userName.search(searchvalue) !=-1||
-element.NAME.search(searchvalue) !=-1||element.ID.search(searchvalue) !=-1 ){
-
-    var stat =element.stat ;
-    if(stat ==0){
-        stat ="Not Active";
-    }else if(stat ==1){
-        stat="Active";
-    }
-      p += "<tr class='table-success'>";
-      p += "<td>" + element.ID+ "</td>";
-      p += "<td>" + element.NAME+"</td>";
-      p += "<td>" + element.userName + "</td>";
-      p += "<td>" + element.tell+"</td>";
-      p += "<td>" + element.pasword + "</td>";
-      p += "<td>" + element.age + "</td>";
-      p += "<td>" + element.gender + "</td>";
-      p += "<td>" + element.EmpolyId+"</td>";
-        p += "<td class='table-warning'>" + stat + "</td>";
-      p += "<tr>";
-      document.getElementById("table").style.display="block";
-      td.insertAdjacentHTML("beforeend", p);  
-          }
-         }
-       )}
-       )}}
-</script>
-</div>
-<!-- all aitam  -->
-<div>
-
-
-<div class="card" >
-    <ul   id="contant2"  style="margin-bottom: 15px;" class="list-group  list-group-flush"> </ul>
-   
-   </div>
- 
 <script>
+    // Search Functionality
+    document.getElementById("Search").onclick = () => {
+        const searchValue = document.getElementById("search").value.trim();
 
-    setInterval(()=>{   
-         
-fetch("api/search_api.php").then(Response=>Response.json()).then(
-    data1=>{
-// لعرض بيانات متقبله
-let main=document.getElementById("contant2");
-main.innerHTML='';// تصفير القيمه لتححدث ر
-data1.forEach(element => {
-    main.innerHTML+=  '<li class="list-group-item  text-white bg-secondary ">ID NO:'+element.ID + "</li>";
-    main.innerHTML+=  '<li class="list-group-item  text-white bg-info "> User Name '+element.userName + "</li>";
-    main.innerHTML+=  '<li class="list-group-item  bg-info"> NAME :'+element.NAME + "</li>";
-    main.innerHTML+=  '<li class="list-group-item bg-info"> gender :'+element.gender + "</li> ";
-    main.innerHTML+="<br>"
-    
-});
-});
-        },1000);  
+        if (searchValue.length >= 0) {
+            fetch("./api/search_api.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ value: searchValue })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById("tablebody");
+                tbody.innerHTML = ""; // Clear previous results
+
+                if (data.length > 0) {
+                    document.getElementById("table").style.display = "block";
+                    data.forEach(element => {
+                        const status = element.stat == 1 ? "Active" : "Not Active";
+                        const row = `
+                            <tr class='table-success'>
+                                <td>${element.ID}</td>
+                                <td>${element.NAME}</td>
+                                <td>${element.userName}</td>
+                                <td>${element.tell}</td>
+                                <td>${element.pasword}</td>
+                                <td>${element.age}</td>
+                                <td>${element.gender}</td>
+                                <td>${element.EmpolyId}</td>
+                                <td class='table-warning'>${status}</td>
+                            </tr>`;
+                        tbody.insertAdjacentHTML("beforeend", row);
+                    });
+                } else {
+                    alert("No results found");
+                    document.getElementById("table").style.display = "none";
+                }
+            })
+            .catch(error => console.error("Error fetching data:", error));
+        } else {
+            alert("Please enter a search term.");
+        }
+    };
+
+    // Clear Search
+    function clearSearch() {
+        document.getElementById("search").value = "";
+        document.getElementById("table").style.display = "none";
+        document.getElementById("tablebody").innerHTML = "";
+    }
+
+    // Live Updates
+    setInterval(() => {
+        fetch("./api/search_api.php")
+        .then(response => response.json())
+        .then(data => {
+            const main = document.getElementById("contant2");
+            main.innerHTML = ""; // Clear previous content
+            data.forEach(element => {
+                main.innerHTML += `
+                    <li class="list-group-item text-white bg-secondary">ID NO: ${element.ID}</li>
+                    <li class="list-group-item text-white bg-info">User Name: ${element.userName}</li>
+                    <li class="list-group-item bg-info">Name: ${element.NAME}</li>
+                    <li class="list-group-item bg-info">Gender: ${element.gender}</li>
+                    <br>`;
+            });
+        })
+        .catch(error => console.error("Error fetching live updates:", error));
+    }, 1000);
 </script>
-
-</div>
-    </div>
-    <!--  left side -->
-    <!-- <div class="col"> -->
-    <div class="col col-lg-2">
-    </div>
-  </div>
-</div>

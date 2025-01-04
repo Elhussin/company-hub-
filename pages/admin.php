@@ -14,7 +14,7 @@ $data = json_decode(file_get_contents('pages/links.json'), true);
                 <div class="card-body">
                     <h5 class="card-title"><?= $link['title'] ?> Panel</h5>
                     <p class="card-text"><?= $link['description'] ?></p>
-                    <a href="<?= $link['url'] ?>" class="btn btn-info w-100"><?= $link['title'] ?></a>
+                    <a href="index.php?page=<?= $link['url'] ?>" class="btn btn-info w-100"><?= $link['title'] ?></a>
                 </div>
             </div>
         </div>
