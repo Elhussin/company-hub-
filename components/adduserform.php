@@ -1,5 +1,6 @@
-<div class="container mt-5 h-100">
-    <div class="col-sm-4"></div>
+<div class="container min-vh-100 mt-5" >
+
+   
     <div class="col-xxl-8">
         <div style="display:none; text-align:center;" id="alrt" class="alert alert-info" role="alert">
 
@@ -16,7 +17,7 @@
                     <div class="col-sm-10">
                         <!-- readonly -->
                         <input type="text" class="form-control" id="staticEmail" required name="user"
-                            value="Enter User Name Or Emile">
+                        placeholder="Enter User Name Or Emile">
                     </div>
                 </div><br>
                 <!-- name -->
@@ -73,7 +74,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for=""></label>
                     <div class="col-sm-10">
-                        <button class="btn btn-info form-control" style="margin:auto;" type="submit">ADD
+                        <button class="btn btn-info form-control" type="submit">ADD
                             User</button>
                     </div>
             </form>
@@ -87,45 +88,45 @@
 
 
 <script>
-function send(event) {
-    event.preventDefault(); // منع الإرسال الافتراضي للنموذج
-    let getForm = document.getElementById("sign");
-    let formdata = new FormData(getForm); // إنشاء البيانات من النموذج
-    console.log(formdata);
-    fetch("./api/adduser_api.php", {
-            method: 'POST',
-            body: formdata
-        })
-        .then(response => {
-            // التحقق من نوع الاستجابة
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text(); // قراءة النص الكامل للاستجابة
-        })
-        .then(text => {
-            try {
-                // محاولة تحليل JSON
-                let data = JSON.parse(text);
-                console.log(data);
+    function send(event) {
+        event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+        let getForm = document.getElementById("sign");
+        let formdata = new FormData(getForm); // إنشاء البيانات من النموذج
+        console.log(formdata);
+        fetch("./api/adduser_api.php", {
+                method: 'POST',
+                body: formdata
+            })
+            .then(response => {
+                // التحقق من نوع الاستجابة
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text(); // قراءة النص الكامل للاستجابة
+            })
+            .then(text => {
+                try {
+                    // محاولة تحليل JSON
+                    let data = JSON.parse(text);
+                    console.log(data);
 
+                    let alert = document.getElementById("alrt");
+                    alert.style.display = "block";
+                    alert.innerHTML = `<p>${data.messege}</p>`;
+                } catch (error) {
+                    // إذا لم تكن JSON، عرض الرسالة الخام
+                    console.error("Invalid JSON:", text);
+                    let alert = document.getElementById("alrt");
+                    alert.style.display = "block";
+                    alert.innerHTML = `<p>Server Response: ${text}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
                 let alert = document.getElementById("alrt");
                 alert.style.display = "block";
-                alert.innerHTML = `<p>${data.messege}</p>`;
-            } catch (error) {
-                // إذا لم تكن JSON، عرض الرسالة الخام
-                console.error("Invalid JSON:", text);
-                let alert = document.getElementById("alrt");
-                alert.style.display = "block";
-                alert.innerHTML = `<p>Server Response: ${text}</p>`;
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            let alert = document.getElementById("alrt");
-            alert.style.display = "block";
-            alert.innerHTML = `<p>Error: ${error.messege}</p>`;
-        });
+                alert.innerHTML = `<p>Error: ${error.messege}</p>`;
+            });
 
-}
+    }
 </script>

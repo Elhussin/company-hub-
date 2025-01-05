@@ -1,7 +1,10 @@
 [
-    {"title": "Admin", "url": "admin/admin.php", "description":"Manage the administrative panel and configure system settings.", "image": "img/admin.png"},
+    {"title": "Admin", "url": "admin", "description":"Manage the administrative panel and configure system settings.", "image": "img/admin.png"},
+    {"title": "User View", "url": "user_view", "description":"View user account details and information.", "image": ""},
+    {"title": "Users Messages", "url": "userMessage", "description":"Vies messages from users.", "image": ""},
+    {"title": "New User", "url": "adduserform", "description":"Add a new user to the system.", "image": ""},
     {"title": "Check Box", "url": "check_box.php", "description":"Manage and customize check box settings.", "image": ""},
-    {"title": "Home", "url": "home.php", "description":"Navigate to the main homepage.", "image": "img/home.png"},
+    {"title": "Home", "url": "home", "description":"Navigate to the main homepage.", "image": "img/home.png"},
     {"title": "Tray", "url": "tray.php", "description":"Access and manage tray-related features.", "image": ""},
     {"title": "View", "url": "view.php", "description":"View details and data related to the system.", "image": ""},
     {"title": "Customer", "url": "coustmer/coustmer.php", "description":"Manage customer information and interactions.", "image": ""},
@@ -15,7 +18,6 @@
     {"title": "Icon", "url": "html/icon.html", "description":"Explore and select icons for use on the website.", "image": ""},
     {"title": "Navigation", "url": "html/nav.html", "description":"Configure and manage the website navigation bar.", "image": ""},
     {"title": "Power", "url": "html/power.html", "description":"Access power-related settings or features.", "image": ""},
-    {"title": "New User", "url": "adduserform", "description":"Add a new user to the system.", "image": ""},
     {"title": "Learn", "url": "php/learn.php", "description":"Access learning materials and resources.", "image": ""},
     {"title": "Search", "url": "searchfrom", "description":"Search through the system's data.", "image": ""},
     {"title": "About", "url": "php/about.php", "description":"Learn more about the system or company.", "image": ""},
@@ -36,7 +38,6 @@
     {"title": "Sign Out", "url": "sign/signout.php", "description":"Log out of the system.", "image": ""},
     {"title": "User", "url": "sign/user.php", "description":"Manage user accounts and settings.", "image": ""},
     {"title": "User Type", "url": "sign/user_type.php", "description":"Manage different types of user accounts.", "image": ""},
-    {"title": "User View", "url": "sign/user_view.php", "description":"View user account details and information.", "image": ""},
     {"title": "User Form", "url": "sign/user_form.php", "description":"Fill out forms related to user accounts.", "image": ""},
     {"title": "User Control", "url": "sign/user_control.php", "description":"Control and manage user account settings.", "image": ""},
     {"title": "User Image", "url": "sign/user_image.php", "description":"View user profile images.", "image": ""},
@@ -47,7 +48,6 @@
     {"title": "User Add", "url": "sign/user_add.php", "description":"Add new user accounts to the system.", "image": ""},
     {"title": "User Edit", "url": "sign/user_edit.php", "description":"Edit user account details.", "image": ""},
     {"title": "User Profile", "url": "sign/user_profile.php", "description":"View and manage user profiles.", "image": ""},
-    {"title": "User Role", "url": "sign/user_role.php", "description":"Assign roles to different user accounts.", "image": ""},
-    {"title": "Users Messages", "url": "userMessage", "description":"Vies messages from users.", "image": ""}
+    {"title": "User Role", "url": "sign/user_role.php", "description":"Assign roles to different user accounts.", "image": ""}
 
 ]

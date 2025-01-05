@@ -33,7 +33,7 @@ if(isset($_POST["submit2"]))
    
    while($row=mysqli_fetch_array($res))
    {
-     $imageURL = 'uploads/'.$row["file_name"];
+     $imageURL = 'components/uploads/'.$row["file_name"];
    echo "<td>"; 
    echo '<img height="200" width="200"  src="'. $imageURL.' "/>';
    echo "<br>";
