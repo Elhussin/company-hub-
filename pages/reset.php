@@ -45,7 +45,7 @@
 
                 try {
                     // إعداد الرابط
-                    $activationLink = ROOT_PATH . 'sign/reset.php?email=' . $_POST['email'] . '&code=' . $user->SECUERTY_COD;
+                    $activationLink = ROOT_PATH . 'index.php?page=reset&email=' . $_POST['email'] . '&code=' . $user->SECUERTY_COD;
 
                     // إعداد المحتوى
                     $subject = 'Reset Email';
