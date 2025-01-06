@@ -1,7 +1,8 @@
 
 <?php
-
+include_once 'config.php';
 $data = json_decode(file_get_contents('pages/links.json'), true);
+
 ?>
 <div class="container mt-5">
     <h2 class="text-center mb-4">Control Panel</h2>
@@ -10,7 +11,7 @@ $data = json_decode(file_get_contents('pages/links.json'), true);
         <!-- Loop Through Links -->
         <div class="col">
             <div class="card shadow">
-                <img src="staic/<?= $link['image']?>" class="card-img-top" alt="<?= $link['title'] ?>" style="height: 150px;">'
+                <img src="<?= ROOT_PATH?>static/img/<?= $link['image']?>" class="card-img-top bg-info" alt="<?= $link['title'] ?>" style="height: 150px;">'
                 <div class="card-body">
                     <h5 class="card-title"><?= $link['title'] ?> Panel</h5>
                     <p class="card-text"><?= $link['description'] ?></p>

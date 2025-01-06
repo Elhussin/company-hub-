@@ -3,6 +3,9 @@ include 'data.php';
 // تحديد الصفحة الحالية بناءً على GET
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
+// تحليل المعلمات الإضافية مثل userid و imgid
+$userid = isset($_GET['userid']) ? $_GET['userid'] : null;
+$imgid = isset($_GET['imgid']) ? $_GET['imgid'] : null;
 
 // التحقق من وجود بيانات الصفحة وإعداد القيم الافتراضية
 $title = isset($page_data[$page]['title']) ? $page_data[$page]['title'] : 'Company Hub';
@@ -17,7 +20,8 @@ include 'layout/header.php';
 $paths = [
     "pages/",
     "components/",
-    "modules/"
+    "modules/",
+    "layout/"
 ];
 
 // التحقق من وجود الملف في أحد المسارات
@@ -25,6 +29,7 @@ $fileFound = false;
 foreach ($paths as $path) {
     $file = $path . $page . ".php";
     if (file_exists($file)) {
+        // تمرير المتغيرات إلى الملف المُضمن
         include $file;
         $fileFound = true;
         break;
@@ -39,5 +44,3 @@ if (!$fileFound) {
 // تضمين تذييل الصفحة
 include 'layout/footer.php';
 ?>
-
-

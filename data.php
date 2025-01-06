@@ -2,7 +2,7 @@
 // مصفوفة بيانات الصفحات
 $page_data = [
     'home' => [
-        'title' => 'Company Hub',
+        'title' => 'Home - Company Hub',
         'description' => 'An innovative application designed to streamline business management and enhance communication within teams across organizations.',
     ],
     'about' => [
@@ -33,7 +33,7 @@ $page_data = [
         'title' => 'Controll - CompanyHub',
         'description' => 'Admin control panel.',
     ],
-    'searchfrom' => [
+    'user_view' => [
         'title' => 'Search - CompanyHub',
         'description' => 'Search for users.',
     ],
@@ -41,6 +41,11 @@ $page_data = [
         'title' => 'Learn - CompanyHub',
         'description' => 'Learn more about CompanyHub.',
     ],
+    'dashboard' => [
+        'title' => 'Dashboard - CompanyHub',
+        'description' => 'Dashboard page mange deatiles.',
+    ]
+
 ];
 
 ?>

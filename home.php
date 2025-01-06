@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('html/icon.html') ?>
-    <title>view</title>
-</head>
-
-<body>
-    <?php include('html/nav.html');
-
-  include 'php/dps.php';
+    <?php include_once 'config.php';?>
 
 
-
-
-  ?>
-
-
-    </head>
-
-    <body>
-
-
-        <main>
             <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style=" margin:auto;  max-width:70%">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
@@ -291,8 +267,3 @@
 
                 });
             </script>
-            <!-- <script src="js/index.js"></script> -->
-            <?php include('html/footer.html') ?>
-    </body>
-
-</html>
