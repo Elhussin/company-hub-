@@ -1,6 +1,9 @@
+<div class="mt-5 d-flex justify-content-center align-items-center" >
+                 <a href="index.php?page=view_users" class="btn btn-info">View Users</a>
+</div>
+   
 <div class="container min-vh-100 mt-5" >
 
-   
     <div class="col-xxl-8">
         <div style="display:none; text-align:center;" id="alrt" class="alert alert-info" role="alert">
 
@@ -78,7 +81,7 @@
                             User</button>
                     </div>
             </form>
-
+  
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 
 <?php
 include_once 'config.php';
-$data = json_decode(file_get_contents('pages/links.json'), true);
+$data = json_decode(file_get_contents('data/links.json'), true);
 
 ?>
 <div class="container mt-5">

@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Upload Files</h1>
+    <h1 class="text-center mb-4">Upload Media</h1>
     <form method="POST" id="files" enctype="multipart/form-data" class="border p-4 rounded bg-light">
         <!-- ملف 1 -->
         <div class="mb-3">
@@ -22,7 +22,7 @@
     </form>
                          <div class="text-center">
                         <br><br>
-                        <a href="index.php?page=viewimg" class="btn btn-secondary">Back to Gallery</a>
+                        <a href="index.php?page=view_imgs" class="btn btn-secondary">Back to Gallery</a>
                     </div>
     <!-- لعرض رسائل الحالة -->
     <div id="statusMessage" class="mt-4"></div>
@@ -62,7 +62,7 @@
         for (let [key, value] of formdata.entries()) {
             console.log(key, value);
             }   
-        fetch("components/file.php", {
+        fetch("api/uplod_img_api.php", {
             method: 'POST',
             body: formdata
         })

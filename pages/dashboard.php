@@ -6,13 +6,13 @@ if (!isset($_SESSION['user'])) {
 }
 
 $user = $_SESSION['user'];
-echo '<pre>';
-print_r($_SESSION['user']);
+// echo '<pre>';
+// print_r($_SESSION['user']);
 
-// echo "ID: " . $user["ID"];
+// echo "ID: " . $user-> ID;
 
 
-echo '</pre>';
+// echo '</pre>';
 // id	userid	file_name	name	description	uploaded_on	status
 
 if ($user->ROEL === "USER") {

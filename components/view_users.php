@@ -1,7 +1,11 @@
 
-<div class="container min-vh-100  mt-5">
 
-        <input type="text" id="search" class="form-control" placeholder="Enter search term">
+<div class="mt-5 d-flex justify-content-center align-items-center" >
+    <a href="index.php?page=add_user" class="btn btn-info">Add New User</a>
+</div>
+
+<div class="container min-vh-100  mt-5">
+        <input type="text" id="search" class="form-control" placeholder="Search by User Id or User name">
         <button id="Search" class="btn btn-outline-info" type="button">Search</button>
         <button id="clear" class="btn btn-outline-info" type="button" onClick="clearSearch()">Clear</button>
 
@@ -9,13 +13,6 @@
         <!-- Cards will be dynamically added here -->
     </div>
 </div>
-
-<!-- <div>
-    <input id="searchInput" type="text" placeholder="Search users" />
-    <button onclick="searchUsers()">Search</button>
-</div> -->
-<!-- 
-<div id="resultsContai/ner"></div> -->
 
 <script>
 const getsearch = document.getElementById("Search");
@@ -39,7 +36,7 @@ function search(){
                 data.forEach(element => {
                     const status = element.stat == 1 ? "Active" : "Not Active";
                     const card = `
-                        <div class="card text-white bg-info mb-3 shadow" style="width: 18rem;">
+                        <div class="card mb-3 shadow" style="width: 18rem;">
                             <div class="card-header">User ID: ${element.ID}</div>
                             <div class="card-body">
                                 <h5 class="card-title">${element.NAME}</h5>
@@ -52,7 +49,9 @@ function search(){
                                     <strong>Employee ID:</strong> ${element.EmpolyId}<br>
                                 </p>
                                 <button class="btn btn-warning" onclick="editUser(${element.ID})">Edit</button>
-                                <button class="btn btn-danger" onclick="deleteUser(${element.ID})">Delete</button>
+                                <a href="index.php?page=user_id&userid='${element.ID}" class="btn btn-danger">Delete</a>
+
+                                // <button class="btn btn-danger" onclick="deleteUser(${element.ID})">Delete</button>
                             </div>
                         </div>`;
                     container.insertAdjacentHTML("beforeend", card);

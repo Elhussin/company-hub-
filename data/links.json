@@ -1,8 +1,11 @@
 [
     {"title": "Admin", "url": "admin", "description":"Manage the administrative panel and configure system settings.", "image": "admin.jpg"},
-    {"title": "User View", "url": "user_view", "description":"View user account details and information.", "image": "users.png"},
-    {"title": "Users Messages", "url": "userMessage", "description":"Vies messages from users.", "image": "message.png"},
-    {"title": "New User", "url": "adduserform", "description":"Add a new user to the system.", "image": "adduser.jpg"},
+    {"title": "New User", "url": "add_user", "description":"Add a new user to the system.", "image": "adduser.jpg"},
+    {"title": "User View", "url": "view_users", "description":"View user account details and information.", "image": "users.png"},
+    {"title": "Users Messages", "url": "view_users_message", "description":"Vies messages from users.", "image": "message.png"},
+    {"title": "Uploud File", "url": "add_img", "description":"Submit files using forms.", "image": "uplod.png"},
+    {"title": "View Image", "url": "view_imgs", "description":"Browse and view uploaded images.", "image": "imges.png"},
+
     {"title": "About", "url": "about", "description":"Learn more about the system or company.", "image": "about.jpg"},
     {"title": "Customer", "url": "coustmer", "description":"Manage customer information and interactions.", "image": "coustmer.png"},
     {"title": "Error", "url": "404", "description":"View 404 Page.", "image": "error.png"},
@@ -10,14 +13,12 @@
     {"title": "Learn", "url": "learn", "description":"Access learning materials and resources.", "image": "larnin.png"},
     {"title": "Footer", "url": "footer", "description":"Design and configure the website footer.", "image": ""},
     {"title": "Navigation", "url": "header", "description":"Configure and manage the website navigation bar.", "image": ""},
-    {"title": "View Image", "url": "viewimg", "description":"Browse and view uploaded images.", "image": "imges.png"},
     {"title": "Active", "url": "active", "description":"Activate user accounts or services.", "image": "info.jpg"},
     {"title": "Contact", "url": "contact", "description":"Contact Us .", "image": "contact.jpeg"},
     {"title": "Login", "url": "login", "description":"Access the system by logging in.", "image": "logoin.jpeg"},
     {"title": "Register", "url": "register", "description":"Create a new account for the system.", "image": "register.jpg"},
     {"title": "Reset", "url": "reset", "description":"Reset your password or account settings.", "image": "rest.png"},
-    {"title": "File Form", "url": "fileform", "description":"Submit files using forms.", "image": "uplod.png"},
-    
+
     {"title": "Check Box", "url": "check_box", "description":"Manage and customize check box settings.", "image": ""},
     {"title": "Tray", "url": "tray", "description":"Access and manage tray-related features.", "image": ""},
     {"title": "View", "url": "view", "description":"View details and data related to the system.", "image": ""},

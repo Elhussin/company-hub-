@@ -1,5 +1,5 @@
 <?php
-include 'data.php';
+include 'data/data.php';
 // تحديد الصفحة الحالية بناءً على GET
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 

@@ -1,3 +1,4 @@
+<div class=" min-vh-100 ">
 <?php
 include_once 'config.php';
 
@@ -14,15 +15,26 @@ if (isset($_GET['imgid'])) {
         if ($row) {
             $imageURL = 'components/uploads/' . $row["file_name"];
             echo '
-
                 <div class="container mt-5">
+                <!-- زر العودة -->
                     <div class="text-center">
-                        <img src="' . $imageURL . '" class="img-fluid" alt="Image">
-                        <a href="index.php?page=viewimg" class="btn btn-secondary">Back to Gallery</a>
 
+                        <!-- عرض الصورة بحجم أكبر -->
+                        <img src="' . $imageURL . '" class="img-fluid rounded shadow-lg" style="max-width: 80%; height: auto;" alt="Image">
+                        
+                        <!-- عرض العنوان والوصف -->
+                        <div class="mt-4">
+                            <h3 class="card-title">' . htmlspecialchars($row["name"]) . '</h3>
+                            <p class="card-text lead">' . htmlspecialchars($row["description"]) . '</p>
+                        </div>
+                        <div class="mt-4">
+                        <a href="index.php?page=viewimg" class="btn btn-secondary">Back to Gallery</a>
+                    </div>
+                    
                     </div>
                 </div>
-                ';
+
+            ';
         } else {
             echo "Image not found.";
         }
@@ -33,3 +45,4 @@ if (isset($_GET['imgid'])) {
     echo "Invalid request.";
 }
 ?>
+</div>
