@@ -5,11 +5,13 @@
     {"title": "Users Messages", "url": "view_users_message", "description":"Vies messages from users.", "image": "message.png"},
     {"title": "Uploud File", "url": "add_img", "description":"Submit files using forms.", "image": "uplod.png"},
     {"title": "View Image", "url": "view_imgs", "description":"Browse and view uploaded images.", "image": "imges.png"},
+    {"title": "Add Main View", "url": "add_view", "description":"View details and data related to the system.", "image": "home.jpeg"},
+    {"title": "Updtae Main View ", "url": "update_view", "description":"Control and manage main view settings.", "image": "home.jpeg"},
+    {"title": "Home", "url": "home", "description":"Navigate to the main homepage.", "image": "home.jpeg"},
 
     {"title": "About", "url": "about", "description":"Learn more about the system or company.", "image": "about.jpg"},
     {"title": "Customer", "url": "coustmer", "description":"Manage customer information and interactions.", "image": "coustmer.png"},
     {"title": "Error", "url": "404", "description":"View 404 Page.", "image": "error.png"},
-    {"title": "Home", "url": "home", "description":"Navigate to the main homepage.", "image": "home.jpeg"},
     {"title": "Learn", "url": "learn", "description":"Access learning materials and resources.", "image": "larnin.png"},
     {"title": "Footer", "url": "footer", "description":"Design and configure the website footer.", "image": ""},
     {"title": "Navigation", "url": "header", "description":"Configure and manage the website navigation bar.", "image": ""},
@@ -21,9 +23,7 @@
 
     {"title": "Check Box", "url": "check_box", "description":"Manage and customize check box settings.", "image": ""},
     {"title": "Tray", "url": "tray", "description":"Access and manage tray-related features.", "image": ""},
-    {"title": "View", "url": "view", "description":"View details and data related to the system.", "image": ""},
     {"title": "Flex", "url": "css/FLEX.html", "description":"Learn about and test CSS Flexbox layouts.", "image": ""},
-    {"title": "View Control", "url": "file/viewcontorl", "description":"Control and manage file view settings.", "image": ""},
 
     {"title": "Upload File", "url": "file/upload", "description":"Upload files to the system.", "image": ""},
 

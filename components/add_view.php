@@ -1,15 +1,7 @@
 <div class="container mt-5">
     <p id="alert"></p>
     <form method="post" enctype="multipart/form-data">
-        <label for="title">Title</label>
-        <input class="form-control" type="text" name="title" required>
-
-        <label for="post">Information</label>
-        <textarea class="form-control" name="post" required></textarea>
-
-        <label for="file">Upload Image</label>
-        <input class="form-control" id="fileInput" name="file" type="file" required>
-        <select name="imgid" id="" required class="w-100">
+         <select class="form-control" name="imgid" id="" required>
             <option>SELECT IMG</option>
             <option value="img1">Boster 1</option>
             <option value="img2">Boster 2</option>
@@ -21,7 +13,17 @@
             <option value="img8">Slide 2</option>
             <option value="img9">Slide 3</option>
         </select>
-        <button type="submit" name="submit" class="btn btn-primary mt-3">Add</button>
+
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" required>
+
+        <label for="post">Information</label>
+        <textarea class="form-control" name="post" required></textarea>
+
+        <label for="file">Upload Image</label>
+        <input class="form-control" id="fileInput" name="file" type="file" required>
+
+        <button type="submit" name="submit" class="btn btn-primary mt-3">Add View Iteam</button>
     </form>
 
     <!-- عرض الصورة المضافة -->
@@ -44,69 +46,6 @@
         }
     });
 </script>
-
-
-
-<!-- 
-<div class="container mt-5 justify-content-center">
-        <div style="overflow:auto">
-            <div>
-                <p id="alert"></p>
-                <div class="table-responsive">
-                    <table class="table table-borderless">
-                        <thead class="table-dark">
-                            <tr>
-                                <th colspan="2">Add  VIEW Elmeant </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form method="post" enctype="multipart/form-data">
-                                <tr>
-                                    <th><label>Titel</label></th>
-                                    <td><input class="w-100" type="text" name="title" required></td>
-                                    <td><p id="title"></p></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><label for="">INFOPRMATIAN</label></th>
-                                    <td><textarea class="w-100" name="post" required></textarea></td>
-                                    <td><p id="post"></p></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><label>SELECT BOSTER IMG</label></th>
-                                    <td>
-                                        <select name="imgid" id="" required class="w-100">
-                                            <option>SELECT IMG</option>
-                                            <option value="img1">Boster 1</option>
-                                            <option value="img2">Boster 2</option>
-                                            <option value="img3">Boster 3</option>
-                                            <option value="img4">Head 1</option>
-                                            <option value="img5">Head 2</option>
-                                            <option value="img6">Head 3</option>
-                                            <option value="img7">Slide 1</option>
-                                            <option value="img8">Slide 2</option>
-                                            <option value="img9">Slide 3</option>
-                                        </select>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><label>UPLOD IMG</label></th>
-                                    <td><input name="file" type="file" required class="w-100"></td>
-                                    <td><img style="width:150px; height: 150px;" id="img" src=""></td>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <td><button type="submit" name="submit" class="btn btn-info w-100">ADD  Main View</button></td>
-                                    <td></td>
-                                </tr>
-                            </form>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </div>
-</div> -->
 
 
 
@@ -137,7 +76,8 @@ if (isset($_FILES["file"]) && !empty($_FILES["file"]["name"]) && isset($_POST["s
             $insert->bindParam(':id', $_POST['imgid']);
             $insert->bindParam(':title', $_POST['title']);
             $insert->bindParam(':post', $_POST['post']);
-            $insert->bindParam(':name', $fileName);
+            $name= $targetDir.$fileName;
+            $insert->bindParam(':name',$name);
 
             if ($insert->execute()) {
                 $statusMsg = "<p class='alert alert-success'>The file " . $fileName . " has been uploaded successfully. The information has been added.</p>";

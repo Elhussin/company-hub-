@@ -13,7 +13,7 @@ $data = json_decode(file_get_contents('data/links.json'), true);
             <div class="card shadow">
                 <img src="<?= ROOT_PATH?>static/img/<?= $link['image']?>" class="card-img-top bg-info" alt="<?= $link['title'] ?>" style="height: 150px;">'
                 <div class="card-body">
-                    <h5 class="card-title"><?= $link['title'] ?> Panel</h5>
+                    <h5 class="card-title"><?= $link['title'] ?></h5>
                     <p class="card-text"><?= $link['description'] ?></p>
                     <a href="index.php?page=<?= $link['url'] ?>" class="btn btn-info w-100"><?= $link['title'] ?></a>
                 </div>
