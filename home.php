@@ -164,10 +164,6 @@
 
             <!-- footer  -->
             <script>
-            //   index for home page live update 
-            // let search=document.getElementById("search");
-
-            // var p =document.getElementById("view")
 
             var title0 = document.getElementById("title0")
             var post0 = document.getElementById("post0")

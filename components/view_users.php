@@ -22,7 +22,7 @@ function search(){
     const searchValue = document.getElementById("search").value.trim();
 
     if (searchValue.length >= 0) {
-        fetch("./api/search_api.php", {
+        fetch("./api/user_search_api.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ value: searchValue })
