@@ -7,7 +7,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // إعدادات رفع الملفات
-$targetDir = "uploads/";
+$targetDir = "../media/";
 $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf'); // أنواع الملفات المسموح بها
 $maxFileSize = 10 * 1024 * 1024; // الحد الأقصى لحجم الملف (10MB)
 $statusMsg = [];

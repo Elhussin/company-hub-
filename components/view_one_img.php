@@ -13,7 +13,7 @@ if (isset($_GET['imgid'])) {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($row) {
-            $imageURL = 'components/uploads/' . $row["file_name"];
+            $imageURL = 'media/' . $row["file_name"];
             echo '
                 <div class="container mt-5">
                 <!-- زر العودة -->
@@ -28,7 +28,7 @@ if (isset($_GET['imgid'])) {
                             <p class="card-text lead">' . htmlspecialchars($row["description"]) . '</p>
                         </div>
                         <div class="mt-4">
-                        <a href="index.php?page=viewimg" class="btn btn-secondary">Back to Gallery</a>
+                        <a href="index.php?page=view_imgs" class="btn btn-secondary">Back to Gallery</a>
                     </div>
                     
                     </div>

@@ -75,7 +75,7 @@
                 require_once 'config.php';
 
                 $statusMsg = '';
-                $targetDir = "uploads/";
+                $targetDir = "media/";
 
                 // التحقق من وجود الملف قبل الوصول إليه
                 if (isset($_FILES["file"]) && !empty($_FILES["file"]["name"]) && isset($_POST["submit"]) && !empty($_POST["imgid"])) {
@@ -113,11 +113,11 @@
                 }
 
                 // عرض رسالة الحالة
-                echo $statusMsg;
+                // echo $statusMsg;
                 ?>
 
                 <script type="text/javascript">
-                    var alertMsg = '<?php echo $statusMsg ?>';
+                    var alertMsg = `<?php echo $statusMsg ?>`;
                     document.getElementById("alert").innerHTML = alertMsg;
                 </script>
             </div>
@@ -144,7 +144,7 @@
             data.forEach(element => {
                 post.innerHTML = element.post;
                 title.innerHTML = element.title;
-                img.src = "/components/uploads/" + element.name;
+                img.src = "/" + element.name;
             });
         })
         .catch(error => console.error('Error:', error));

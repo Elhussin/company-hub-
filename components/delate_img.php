@@ -21,7 +21,7 @@ if (isset($_GET['imgid'])) {
             $stmt->execute();
 
             // حذف الملف من المجلد
-            $filePath = 'components/uploads/' . $imageName;
+            $filePath = 'media/' . $imageName;
             if (file_exists($filePath)) {
                 unlink($filePath);
             }
@@ -29,7 +29,7 @@ if (isset($_GET['imgid'])) {
             // عرض تنبيه وإعادة التوجيه
             echo "<script>
                 alert('Image deleted successfully');
-                window.location.href = 'index.php?page=viewimg';
+                window.location.href = 'index.php?page=view_imgs';
             </script>";
         } else {
             echo "<script>alert('Image not found');</script>";

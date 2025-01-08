@@ -3,7 +3,7 @@
 <div class="mt-5 d-flex justify-content-center align-items-center" >
     <a href="index.php?page=add_user" class="btn btn-info">Add New User</a>
 </div>
-
+<div id="alert" class="mt-3"></div>
 <div class="container min-vh-100  mt-5">
         <input type="text" id="search" class="form-control" placeholder="Search by User Id or User name">
         <button id="Search" class="btn btn-outline-info" type="button">Search</button>
@@ -49,9 +49,7 @@ function search(){
                                     <strong>Employee ID:</strong> ${element.EmpolyId}<br>
                                 </p>
                                 <button class="btn btn-warning" onclick="editUser(${element.ID})">Edit</button>
-                                <a href="index.php?page=user_id&userid='${element.ID}" class="btn btn-danger">Delete</a>
-
-                                // <button class="btn btn-danger" onclick="deleteUser(${element.ID})">Delete</button>
+                                <button class="btn btn-danger" onclick="deleteUser(${element.ID})">Delete</button>
                             </div>
                         </div>`;
                     container.insertAdjacentHTML("beforeend", card);
@@ -76,25 +74,42 @@ function editUser(userId) {
 
 // Function to delete user
 function deleteUser(userId) {
+    console.log(userId)
     if (confirm("Are you sure you want to delete this user?")) {
         fetch(`./api/delete_user.php`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: userId })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            console.log(response)
+            return response.json();
+        })
         .then(data => {
+            const alertContainer = document.getElementById("alert");
             if (data.success) {
-                alert("User deleted successfully!");
+                alertContainer.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
                 document.getElementById("Search").click(); // Refresh the results
             } else {
-                alert("Failed to delete user.");
+                alertContainer.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
             }
+            setTimeout(() => {
+                alertContainer.innerHTML = "";
+            }, 5000);
         })
-        .catch(error => console.error("Error deleting user:", error));
+        .catch(error => {
+            const alertContainer = document.getElementById("alert");
+            alertContainer.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+            setTimeout(() => {
+                alertContainer.innerHTML = "";
+            }, 5000);
+            console.error("Error deleting user:", error);
+        });
     }
 }
-
 function clearSearch() {
     document.getElementById("search").value = ""; // إعادة تعيين قيمة حقل البحث
     document.getElementById("cardContainer").innerHTML = ""; // تنظيف النتائج

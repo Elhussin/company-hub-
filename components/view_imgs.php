@@ -13,7 +13,7 @@
             $res = $databass->query("SELECT * FROM `images`");
             echo '<div class="row">';
             while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
-                $imageURL = 'components/uploads/' . $row["file_name"];
+                $imageURL = 'media/' . $row["file_name"];
                 echo '
                 <div class="col-md-4 mb-4">
                     <div class="card">
