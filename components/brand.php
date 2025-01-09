@@ -1,31 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <?php include('../html/icon.html'); ?>
+    <?php 
+    require_once 'config.php';
 
-</head>
-
-<body>
-    <?php include('../html/nav.html');
-    require_once '../php/dps.php';
-
-    $cheak = $databass->prepare(" SELECT * FROM `users` WHERE ROEL='Agent' ");
+    $cheak = $databass->prepare(" SELECT * FROM `company` WHERE ROEL='Agent' ");
     // $cheak->bindParam('ROEL', );
     $cheak->execute();
-    ?>
+    ?><?php include 'api/add_brand.php' ?>
 
-    <div style="overflow:auto">
-        <div class="menu">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-            <a href="#">Link 4</a>
-        </div>
 
         <div id="alert"></div>
         <div style="margin:auto;" class="form-group row  main">
@@ -70,16 +51,13 @@
                             </td>
                         </tr>
 
-                        <!-- <tr>
-                            <th class="table-primary">Tybe </th>
-                            <td> <input class="form-control" name="type" type="text"> </td>
-                        </tr> -->
+
                         <tr>
                             <td colspan="2"> <button name="new_brand" class="form-control btn btn-info" type="submit">Add New  Brand</button></td>
                         </tr>
                     </form>
                     
-                    <?php include('../api/newbrand.php'); ?>
+
                 </tbody>
 
             </table>
@@ -89,13 +67,4 @@
 
 
 
-
-
-</body>
-
-</html>
-
-<?php include('../html/footer.html'); ?> 
-
-
-<script src="prodect/additeam.js"></script>
+<script src="components/additeam.js"></script>

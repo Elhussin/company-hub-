@@ -147,7 +147,7 @@ if (isset($_POST["submit"])) {
        
                     setTimeout(() => {
                         alert('The information has been updated successfully.');
-                        window.location.href = 'index.php?page=update_view';
+                        window.location.href = 'index.php?page=edit_view';
                     }, 2000); // الانتظار لمدة 2 ثانية قبل التحويل
                 </script>";
                 exit; // إنهاء السكربت

@@ -1,9 +1,10 @@
 
 <?php
 $meesage = '';
-require_once '../php/dps.php';
-$code= $_POST['company_id'].'-'.$_POST['brand_name_s'].'-'.$_POST['brand_name'];
+require_once 'config.php';
+
 if (isset($_POST["new_brand"])) {
+    $code= $_POST['company_id'].'-'.$_POST['brand_name_s'].'-'.$_POST['brand_name'];
     $cheakbrand = $databass->prepare("SELECT * FROM `brand` WHERE `code`='".$code."' ") ;
     $cheakbrand->execute();
     if($cheakbrand->rowCount()>0){

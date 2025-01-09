@@ -34,7 +34,6 @@
 
 
 
-// select lens type   funtion 
     // 
     function lens_type_view_fun() {
       var selectl = document.getElementById('lens_type');
@@ -82,7 +81,7 @@ function OpenWindow_lens_type() {
 }
 
 function OpenWindow_newcompany() {
-  window.open('prodect/newcompany.php',
+  window.open('index.php?page=add_company',
               'newwindow',
               config='height=670,width=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
 }
