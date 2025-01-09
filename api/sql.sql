@@ -20,3 +20,39 @@ CREATE TABLE brand (
     company_id INT NOT NULL,
     FOREIGN KEY (company_id) REFERENCES company(ID)
 );
+
+
+
+CREATE TABLE prodect (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- معرف فريد تلقائي
+    PRODECT VARCHAR(50) NOT NULL, -- نوع المنتج
+    brand_name VARCHAR(100) NOT NULL, -- اسم العلامة التجارية
+    cotger VARCHAR(50), -- الفئة
+    typelens VARCHAR(50), -- نوع العدسة
+    `index` VARCHAR(50), -- الفهرس
+    type JSON, -- نوع المنتج (يمكن أن يكون قائمة)
+    Special VARCHAR(100), -- خاص
+    model VARCHAR(100), -- الموديل
+    made_year YEAR, -- سنة الصنع
+    color VARCHAR(50), -- اللون
+    lens VARCHAR(50), -- العدسة
+    arm VARCHAR(50), -- الذراع
+    bridg VARCHAR(50), -- الجسر
+    cost DECIMAL(10, 2), -- التكلفة
+    ratel DECIMAL(10, 2), -- السعر
+    discon DECIMAL(10, 2), -- الخصم
+    tax DECIMAL(10, 2), -- الضريبة
+    final DECIMAL(10, 2), -- السعر النهائي
+    datein DATE, -- تاريخ الإدخال
+    count INT, -- الكمية
+    madein VARCHAR(100), -- بلد الصنع
+    descrip TEXT, -- الوصف
+    UNIQUE KEY unique_product (PRODECT, brand_name, model, made_year) -- معرف فريد لمنع التكرار
+);
+
+ALTER TABLE prodect
+ADD COLUMN brand_id INT,
+ADD CONSTRAINT fk_brand
+FOREIGN KEY (brand_id)
+REFERENCES brands(id)
+ON DELETE SET NULL; -- يمكن تغيير هذا الإجراء حسب الحاجة

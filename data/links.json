@@ -17,8 +17,6 @@
     {"title": "Customer", "url": "coustmer", "description":"Manage customer information and interactions.", "image": "coustmer.png"},
     {"title": "Error", "url": "404", "description":"View 404 Page.", "image": "error.png"},
     {"title": "Learn", "url": "learn", "description":"Access learning materials and resources.", "image": "larnin.png"},
-    {"title": "Footer", "url": "footer", "description":"Design and configure the website footer.", "image": ""},
-    {"title": "Navigation", "url": "header", "description":"Configure and manage the website navigation bar.", "image": ""},
     {"title": "Active", "url": "active", "description":"Activate user accounts or services.", "image": "info.jpg"},
     {"title": "Contact", "url": "contact", "description":"Contact Us .", "image": "contact.jpeg"},
     {"title": "Login", "url": "login", "description":"Access the system by logging in.", "image": "logoin.jpeg"},
@@ -34,18 +32,8 @@
     {"title": "Lens", "url": "prodect/lens", "description":"Explore and manage lens options.", "image": ""},
     {"title": "Lens Type", "url": "prodect/lens_type", "description":"Manage different types of lenses.", "image": ""},
 
-    {"title": "User", "url": "sign/user", "description":"Manage user accounts and settings.", "image": ""},
-    {"title": "User Type", "url": "sign/user_type", "description":"Manage different types of user accounts.", "image": ""},
-    {"title": "User Form", "url": "sign/user_form", "description":"Fill out forms related to user accounts.", "image": ""},
-    {"title": "User Control", "url": "sign/user_control", "description":"Control and manage user account settings.", "image": ""},
-    {"title": "User Image", "url": "sign/user_image", "description":"View user profile images.", "image": ""},
-    {"title": "User List", "url": "sign/user_list", "description":"View a list of all user accounts.", "image": ""},
-    {"title": "User Search", "url": "sign/user_search", "description":"Search for specific user accounts.", "image": ""},
-    {"title": "User Update", "url": "sign/user_update", "description":"Update user account information.", "image": ""},
-    {"title": "User Delete", "url": "sign/user_delete", "description":"Delete user accounts from the system.", "image": ""},
-    {"title": "User Add", "url": "sign/user_add", "description":"Add new user accounts to the system.", "image": ""},
-    {"title": "User Edit", "url": "sign/user_edit", "description":"Edit user account details.", "image": ""},
-    {"title": "User Profile", "url": "sign/user_profile", "description":"View and manage user profiles.", "image": ""},
-    {"title": "User Role", "url": "sign/user_role", "description":"Assign roles to different user accounts.", "image": ""}
+
+    {"title": "User Edit", "url": "sign/user_edit", "description":"Edit user account details.", "image": ""}
+
 
 ]

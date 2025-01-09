@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <label for="brand_name_s" class="font-weight-bold">Type</label>
                                 <select class="form-control" name="brand_name_s" id="brand_name_s">
-                                    <option value="frame">Frame</option>
+                                    <option value="fram">Frame</option>
                                     <option value="lens">Lens</option>
                                     <option value="exa">OTHER</option>
                                     <option value="all">ALL</option>

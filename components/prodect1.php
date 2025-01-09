@@ -1,213 +1,160 @@
+<?php
+require_once 'config.php';
+// $company_lens = $databass->prepare("SELECT DISTINCT * FROM `company` WHERE ROEL='Agent' AND (cotegray ='lens' OR cotegray='all')");
+// $company_lens->execute();
 
-        <div class="main">
+// $company_frame = $databass->prepare("SELECT DISTINCT * FROM `company` WHERE ROEL='Agent' AND (cotegray ='fram' OR cotegray='all')");
+// $company_frame->execute();
 
-            <table class="table table-borderless">
-                <!--  main table head    Add new Brodect </th> -->
-                <thead>
-                    <!--   company  -->
+$brand_lens = $databass->prepare("SELECT DISTINCT * FROM `brand` WHERE `type`='lens'");
+$brand_lens->execute();
 
-
-                    <tr>
-                        <th colspan="2" style="text-align:center" class="table-dark" class="table-primary" scope="col">
-                            Add new Brodect </th>
-                    </tr>
-                </thead>
-
-                <!-- main  table body  -->
-                <tbody>
-                    <form action="" method="POST">
-                        <!-- Slect main iteam Type -->
-                        <tr>
-
-                            <th class="table-primary">Slect iteam Type</th>
-                            <td>
-                                <select class="form-control" name="PRODECT" id="PRODECT" onchange="brand_fun()" >
-                                    <option>select </option>
-                                    <option value="frame">Frame </option>
-                                    <option value="lens">Lens</option>
-                                    <option value="contc_Lens">contc Lens</option>
-                                    <option value="parts">parts</option>
-                                    <option value="Machien">Machien</option>
-
-                                </select>
-                            </td>
-                        </tr>
+$brand_frame = $databass->prepare("SELECT DISTINCT * FROM `brand` WHERE `type`='fram'");
+$brand_frame->execute();
 
 
-                        <!-- compay nams -->
-                        <tr>
-                            <th class="table-primary"> Company</th>
-
-                            <td>
-
-                                <!--  copmany for fram  -->
-                                <select class="form-control" name="company_id_name" id="company_lens"
-                                    style="display:none">
-                                    <option value=""></option>
-                                    <?php
-                        require_once '../php/dps.php';
-
-                        $company_lens = $databass->prepare(" SELECT DISTINCT * FROM `users` WHERE ROEL='Agent' AND  cotegray ='lens'  or cotegray='all' ");
-                        $company_lens->execute();
-
-                        foreach ($company_lens as $view_C_len) {
-
-                            // echo '<option value="' .$view["ID"] . '" > ' . $view["ID"] . '-' . $view["NAME"] . '</option>';
-                            echo '<option value="' . $view_C_len["NAME"] . $view_C_len["ID"] . '" > ' . $view_C_len["NAME"] . '</option>';
-                        }
-                        // echo '<option value="' . $view["NAME"] . $view["ID"] . '" > ' . $view["ID"] . '-' . $view["NAME"] . '</option>';
-
-                        ?>
-                                    <!--   copmany for e lens  -->
-                                </select>
+?>
 
 
-                                <select class="form-control" name="company_id_name" id="company_frame"
-                                    style="display:none">
-                                    <option value=""></option>
-                                    <?php
-                        require_once '../php/dps.php';
+<style>
+    .card {
+        margin-bottom: 20px;
+    }
 
-                        $company_frame = $databass->prepare(" SELECT DISTINCT * FROM `users` WHERE ROEL='Agent' AND  cotegray ='frame'  or cotegray='all' ");
-                        $company_frame->execute();
+    .form-control {
+        margin-bottom: 10px;
+    }
+</style>
 
-                        foreach ($company_frame as $view_C_frame) {
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title">Add New Product</h5>
+        </div>
+        <div class="card-body">
+            <form id="productForm" method="POST">
+                <!-- Select Item Type -->
+                <div class="form-group">
+                    <label for="PRODECT">Select Item Type</label>
+                    <select class="form-control" name="PRODECT" id="PRODECT" onchange="brand_fun()">
+                        <option value="">Select</option>
+                        <option value="frame">Frame</option>
+                        <option value="lens">Lens</option>
+                        <option value="contc_Lens">Contact Lens</option>
+                        <option value="parts">Parts</option>
+                        <option value="Machien">Machine</option>
+                    </select>
+                </div>
 
-                            echo '<option value="' . $view_C_frame["NAME"] . $view_C_frame["ID"] . '" > ' . $view_C_frame["NAME"] . '</option>';
-                        }
-                        ?>
-                                </select>
+                <!-- Brand Names -->
+                <div class="form-group">
 
+                    <div class="input-group-append">
+                        <label for="brand_name">Brand</label>
+                        <button type="button" class="btn btn-outline-secondary" onclick="add_brand()">New Brand</button>
+                    </div>
+                    <select class="form-control" name="brand_name" id="brand_frame" style="display:none">
+                        <option value="">Select Brand</option>
+                        <?php
 
+                        foreach ($brand_frame as $view_fram): ?>
+                            <option value="<?php echo $view_fram['name'] . $view_fram['id']; ?>">
+                                <?php echo $view_fram['name']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                        <button type="button" class="btn btn-secondary mt-2" onclick="OpenWindow_brand()">New
+                            Brand</button>
+                    </select>
 
-                            </td>
-                        </tr>
+                    <div id="brand_lens" style="display:none">
+                    <select class="form-control" name="brand_name" >
+                        <option value="">Select Brand</option>
+                        <?php
 
+                        foreach ($brand_lens as $view_lens): ?>
+                            <option value="<?php echo $view_lens['name'] . $view_lens['id']; ?>">
+                                <?php echo $view_lens['name']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <?php include('lens_diteals.php'); ?>
+                    </div>
+                  </div>
 
+                <!-- Add Item Information -->
+                <?php include('add_iteam.php'); ?>
 
-
-
-
-                         <!-- brand nams -->
-                         <tr>
-                            <th class="table-primary" scope="row">
-                                <input class="btn-warning" type="button" value="ADD New "
-                                    onclick="OpenWindow_brand()">Brand
-
-                            </th>
-                            <td>
-                                <!--  select option for frame brand  -->
-                                <select class="form-control" name="brand_name" id="brand_frame" style="display:none">
-                                    <option value="">Seleact </option>
-                                    <?php
-
-                                    $brand_frame = $databass->prepare(" SELECT DISTINCT *  FROM `brand` WHERE `type`='frame'");
-                                    $brand_frame->execute();
-                                    foreach ($brand_frame as $view_fram) {
-
-                                        echo '<option value="'  . $view_fram["name"] . $view_fram["ID"] . '" > ' . $view_fram["name"] . '</option>';
-                                    }
-
-                                    ?>
-                                </select>
-                                <!-- select option for lens  rady or lap -->
-                                <select class="form-control" name="brand_name" id="brand_lens" style="display:none">
-                                    <option value="">Seleact </option>
-                                    <?php
-                                    $brand_lens = $databass->prepare(" SELECT DISTINCT *  FROM `brand` WHERE `type`='lens'");
-                                    $brand_lens->execute();
-                                    foreach ($brand_lens as $view_lens) {
-
-                                        // echo '<option value="'. $view["name"] . $view["ID"] . '" > ' . $view["name"] . '</option>';
-                                        echo '<option value="'  . $view_lens["name"] . $view_lens["ID"] . '" > ' . $view_lens["name"] . '</option>';
-                                    }
-                                    ?>
-                                </select>
-
-                            </td>
-                        </tr>
-
-                        <!--   selet lens&fram Cotgery arraya -->
-                        <!-- <tr>
-                            <th class="table-primary" scope="row">Cotgery</th>
-                            <td>
-                                <select class="form-control" name="cotgery" id="fram_type">
-                                    <option value="SG">Sun Frame</option>
-                                    <option value="FR">FR Frame</option>
-                                    <option value="SP">Sport Frame</option>
-                                </select>
-                                <select class="form-control" name="cotgery" scope="row" id="lens_type"
-                                    onchange="lens_type_view_fun()">
-                                    <option>lens type</option>
-                                    <?php
-                                    $lens_type_cotgry = $databass->prepare(" SELECT DISTINCT lens_cotger  FROM `prodect`");
-                                    $lens_type_cotgry->execute();
-                                    foreach ($lens_type_cotgry as $view) {
-                                        echo '<option value="' . $view["lens_cotger"] . '" > ' . $view["lens_cotger"] . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                        </tr> -->
-
-                        
-                        <!--    add item iformatioan  -->
-                        <?php include('add_iteam.php'); ?>
-                        <!--  submit button   -->
-                        <tr>
-                            <th></th>
-                            <th collspan=3;>
-                                <input class="form-control" type="submit" name="addnew" width="100%">
-                            </th>
-                        </tr>
-
-
-                    </form>
-                </tbody>
-            </table>
-
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <input type="submit" name="addnew" class="btn btn-primary btn-block" value="Add New Product">
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-
-    <?php include('../html/footer.html') ?>
-</body>
-<!-- <script src="prodect/additeam.js"></script> -->
-
-
-</html>
 <script>
-     function brand_fun() {
+        // منع الإرسال الافتراضي وجمع البيانات
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // منع الإرسال الافتراضي
+
+            // جمع بيانات الفورم
+            const formData = new FormData(event.target);
+            const formObject = {};
+
+            // تحويل FormData إلى كائن
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+
+            
+            fetch('api/add_product.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formObject, null, 2)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+                        // عرض البيانات
+
+            console.log(JSON.stringify(formObject, null, 2));
+
+
+        });
+
+    function brand_fun() {
         var selectl = document.getElementById('PRODECT');
-        var optionl = selectl.options[selectl.selectedIndex];
-        if (optionl.value == "frame") {
+        var optionl = selectl.options[selectl.selectedIndex].value;
+        if (optionl === "frame") {
             document.getElementById('brand_frame').style.display = "block";
-            document.getElementById('fram_type').style.display = "block";
-            document.getElementById('company_frame').style.display = "block";
-            document.getElementById('company_lens').style.display = "none";
+            document.getElementById('brand_lens').style.display = "none";
+        } else if (optionl === "lens") {
+            document.getElementById('brand_frame').style.display = "none";
+            document.getElementById('brand_lens').style.display = "block";
+        } else {
+            document.getElementById('brand_frame').style.display = "none";
 
             document.getElementById('brand_lens').style.display = "none";
-            document.getElementById('lens_type').style.display = "none";
-
-        } else if (optionl.value == "lens") {
-          document.getElementById('brand_frame').style.display = "none"
-          document.getElementById('fram_type').style.display = "none";
-            document.getElementById('company_frame').style.display = "none";
-            document.getElementById('company_lens').style.display = "block";
-            document.getElementById('brand_lens').style.display = "block";
-            document.getElementById('lens_type').style.display = "block";
-            
-        } else {
-            // document.getElementById('brand_frame').style.display = "none";
-            // document.getElementById('fram_type').style.display = "none";
-            // document.getElementById('company_frame').style.display = "none";
-            // document.getElementById('company_lens').style.display = "none";
-            // document.getElementById('brand_lens').style.display = "none";
-            // document.getElementById('lens_type').style.display = "none";
-
         }
     }
-    
-    brand_fun();
 
+    function add_brand() {
+        // يمكنك إضافة وظيفة لفتح نافذة جديدة لإضافة علامة تجارية جديدة
+        window.open('index.php?page=add_brand', '_blank', 'width=600,height=400');
+    }
+
+    function add_company() {
+        // يمكنك إضافة وظيفة لفتح نافذة جديدة لإضافة علامة تجارية جديدة
+        window.open('index.php?page=add_company', '_blank', 'width=600,height=400');
+    }
+
+    brand_fun()
 </script>

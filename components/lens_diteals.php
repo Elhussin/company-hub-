@@ -1,9 +1,6 @@
 <?php
 require_once 'config.php';
 
-// Fetch companies data
-$companys = $databass->prepare("SELECT DISTINCT * FROM `company` WHERE ROEL='Agent' AND (cotegray='lens' OR cotegray='all')");
-$companys->execute();
 $coatings = [
     "NOR" => "NOR", "MC" => "MC", "Color" => "Color",
     "TRN_brown" => "TRN Brown", "TRN_Gray" => "TRN Gray",
@@ -11,58 +8,16 @@ $coatings = [
     "POLY" => "POLY Carbon", "singl" => "Single Vision",
     "Bifocal" => "Bifocal", "Multi" => "Multi Focal"
 ];
-// Fetch brands data
-$cheak_brand = $databass->prepare("SELECT DISTINCT * FROM `brand` WHERE `type`='lens'");
-$cheak_brand->execute();
 ?>
-    <style>
-        .card {
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .card-header {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-        }
-        .form-check-inline {
-            margin-right: 15px;
-        }
-    </style>
 
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title mb-0">Add New Lens Type</h5>
+                <h5 class="card-title mb-0">Lens Details</h5>
             </div>
             <div class="card-body">
-                <form action="" method="POST" id="add_new_company">
                     <div class="row">
                         <div class="col-md-6">
-                            <!-- <div class="form-group mb-3">
-                                <label for="company_id" class="form-label">Company</label>
-                                <select class="form-control" name="company_id" id="company_id">
-                                    <?php foreach ($companys as $view): ?>
-                                        <option value="<?php echo $view["name"] . $view["id"]; ?>">
-                                            <?php echo $view["id"] . '-' . $view["name"]; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <button type="button" class="btn btn-secondary mt-2" onclick="OpenWindow_newcompany()">New Company</button>
-                            </div> -->
-
-                            <div class="form-group mb-3">
-                                <label for="brand_name" class="form-label">Brand</label>
-                                <select class="form-control" name="brand_name" id="brand_name">
-                                    <?php foreach ($cheak_brand as $view): ?>
-                                        <option value="<?php echo $view["name"] . $view["id"]; ?>">
-                                            <?php echo $view["company_id"] . '-' . $view["name"]; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <button type="button" class="btn btn-secondary mt-2" onclick="OpenWindow_brand()">New Brand</button>
-                            </div>
-
                             <div class="form-group mb-3">
                                 <label for="cotger" class="form-label">Category</label>
                                 <select class="form-control" name="cotger" id="cotger">
@@ -116,10 +71,6 @@ $cheak_brand->execute();
                         </div>
                     </div>
 
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary" name="new_type">Add New Lens Type</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

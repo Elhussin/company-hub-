@@ -19,10 +19,9 @@
 </style>
 <div class="card">
   <div class="card-header bg-primary text-white">
-    <h5 class="card-title mb-0">إضافة منتج جديد</h5>
+    <h5 class="card-title mb-0">Product diteals</h5>
   </div>
   <div class="card-body">
-    <form action="" method="POST" id="add_new_product">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
@@ -95,9 +94,5 @@
         <label for="descrip" class="font-weight-bold">Description</label>
         <input class="form-control" name="descrip" type="text" id="descrip">
       </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary">إضافة المنتج</button>
-      </div>
-    </form>
   </div>
 </div>

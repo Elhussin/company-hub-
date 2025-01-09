@@ -61,7 +61,7 @@
                         <option value="">Choose the type</option>
                         <option value="User">User</option>
                         <option value="Agent">Agent</option>
-                        <option value="inseranc">Insurance</option>
+                        <option value="Inseranc">Insurance</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-info btn-block">Add New Company</button>

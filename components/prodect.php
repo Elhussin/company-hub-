@@ -33,40 +33,6 @@ require_once 'config.php';
                                 </select>
                             </td>
                         </tr>
-                        <script>
-                        function brand_fun() {
-                            var selectl = document.getElementById('PRODECT');
-                            var optionl = selectl.options[selectl.selectedIndex];
-                            if (optionl.value == "frame") {
-                                document.getElementById('brand_frame').style.display = "block";
-                                document.getElementById('fram_type').style.display = "block";
-                                document.getElementById('company_frame').style.display = "block";
-                                document.getElementById('company_lens').style.display = "none";
-
-                                document.getElementById('brand_lens').style.display = "none";
-                                document.getElementById('lens_type').style.display = "none";
-
-                            } else if (optionl.value == "lens") {
-                                document.getElementById('brand_frame').style.display = "none"
-                                document.getElementById('fram_type').style.display = "none";
-                                document.getElementById('company_frame').style.display = "none";
-                                document.getElementById('company_lens').style.display = "block";
-                                document.getElementById('brand_lens').style.display = "block";
-                                document.getElementById('lens_type').style.display = "block";
-
-                            } else {
-                                document.getElementById('brand_frame').style.display = "none";
-                                document.getElementById('fram_type').style.display = "none";
-                                document.getElementById('company_frame').style.display = "none";
-                                document.getElementById('company_lens').style.display = "none";
-                                document.getElementById('brand_lens').style.display = "none";
-                                document.getElementById('lens_type').style.display = "none";
-
-                            }
-                        }
-
-                        brand_fun();
-                        </script>
 
 
                         <!-- compay nams -->
@@ -459,3 +425,38 @@ if (isset($_POST["company_id_name"])){
   echo  $combany_name = substr($_POST['company_id_name'], 0, -4);
   echo  $combany_id = substr($_POST['company_id_name'], -4);
 }
+
+<script>
+function brand_fun() {
+    var selectl = document.getElementById('PRODECT');
+    var optionl = selectl.options[selectl.selectedIndex];
+    if (optionl.value == "frame") {
+        document.getElementById('brand_frame').style.display = "block";
+        document.getElementById('fram_type').style.display = "block";
+        document.getElementById('company_frame').style.display = "block";
+        document.getElementById('company_lens').style.display = "none";
+
+        document.getElementById('brand_lens').style.display = "none";
+        document.getElementById('lens_type').style.display = "none";
+
+    } else if (optionl.value == "lens") {
+        document.getElementById('brand_frame').style.display = "none"
+        document.getElementById('fram_type').style.display = "none";
+        document.getElementById('company_frame').style.display = "none";
+        document.getElementById('company_lens').style.display = "block";
+        document.getElementById('brand_lens').style.display = "block";
+        document.getElementById('lens_type').style.display = "block";
+
+    } else {
+        document.getElementById('brand_frame').style.display = "none";
+        document.getElementById('fram_type').style.display = "none";
+        document.getElementById('company_frame').style.display = "none";
+        document.getElementById('company_lens').style.display = "none";
+        document.getElementById('brand_lens').style.display = "none";
+        document.getElementById('lens_type').style.display = "none";
+
+    }
+}
+
+brand_fun();
+</script>
