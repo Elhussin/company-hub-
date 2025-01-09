@@ -31,28 +31,6 @@
 <script>
     let getForm = document.getElementById("files");
 
-    // إضافة حقول اسم ووصف لكل ملف
-    // document.querySelectorAll('input[type="file"]').forEach((fileInput, index) => {
-    //     fileInput.addEventListener('change', (event) => {
-    //         let files = event.target.files;
-    //         let detailsDiv = document.getElementById(`file${index + 1}Details`);
-    //         detailsDiv.innerHTML = ""; // تنظيف المحتوى السابق
-
-    //         for (let i = 0; i < files.length; i++) {
-    //             detailsDiv.innerHTML += `
-    //                 <div class="mb-3">
-    //                     <label for="name${index}_${i}" class="form-label">Name for ${files[i].name}:</label>
-    //                     <input type="text" name="name${index}_${i}" class="form-control" required>
-    //                 </div>
-    //                 <div class="mb-3">
-    //                     <label for="description${index}_${i}" class="form-label">Description for ${files[i].name}:</label>
-    //                     <textarea name="description${index}_${i}" class="form-control" rows="2" required></textarea>
-    //                 </div>
-    //             `;
-    //         }
-    //     });
-    // });
-
     // إرسال النموذج باستخدام Fetch API
     getForm.onsubmit = (form1) => {
         form1.preventDefault(); // منع الإرسال المباشر إلى السيرفر
@@ -70,7 +48,7 @@
         .then(data => {
             let statusMessage = document.getElementById("statusMessage");
             statusMessage.innerHTML = ""; // تنظيف الرسائل السابقة
-            console.log(data)
+
             if (data.status === "success") {
                 data.messages.forEach(message => {
                     statusMessage.innerHTML += `<p style="color: green;">${message}</p>`;

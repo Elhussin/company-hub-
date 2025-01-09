@@ -18,7 +18,7 @@
 
 </style>
 <div class="card">
-  <div class="card-header bg-primary text-white">
+  <div class="card-header bg-info text-white">
     <h5 class="card-title mb-0">Product diteals</h5>
   </div>
   <div class="card-body">
@@ -69,10 +69,6 @@
           <div class="form-group">
             <label for="final" class="font-weight-bold">Final Price</label>
             <input class="form-control" name="final" type="text" id="final">
-          </div>
-          <div class="form-group">
-            <label for="datein" class="font-weight-bold">Date IN</label>
-            <input class="form-control" name="datein" type="date" id="datein">
           </div>
         </div>
       </div>

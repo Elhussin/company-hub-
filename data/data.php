@@ -45,6 +45,9 @@ $page_data = [
         'title' => 'Dashboard - CompanyHub',
         'description' => 'Dashboard page mange deatiles.',
     ]
+    
+
+
 
 ];
 

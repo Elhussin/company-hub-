@@ -12,6 +12,9 @@
     {"title": "View Company", "url": "view_company", "description":"View and manage all company details.", "image": "update.png"},
     {"title": "New Brand", "url": "add_brand", "description":"Add new product brands.", "image": "add.png"},
     {"title": "Viw Brand", "url": "view_brand", "description":"Manage and view product brands.", "image": "update.png"},
+    {"title": "New Product", "url": "add_prodect", "description":"Add and manage new products in the inventory.", "image": "add.png"},
+    {"title": "View Product", "url": "view_prodect", "description":"View and manage  products in the inventory.", "image": "Update.png"},
+
 
     {"title": "About", "url": "about", "description":"Learn more about the system or company.", "image": "about.jpg"},
     {"title": "Customer", "url": "coustmer", "description":"Manage customer information and interactions.", "image": "coustmer.png"},
@@ -28,7 +31,6 @@
     {"title": "Kids", "url": "prodect/kids", "description":"Browse eyewear designed specifically for kids.", "image": ""},
     {"title": "Last", "url": "prodect/last", "description":"View the latest added products.", "image": ""},
     {"title": "Add Item", "url": "prodect/add_iteam", "description":"Add new items to the product inventory.", "image": ""},
-    {"title": "New Product", "url": "prodect/prodect", "description":"Add and manage new products in the inventory.", "image": ""},
     {"title": "Lens", "url": "prodect/lens", "description":"Explore and manage lens options.", "image": ""},
     {"title": "Lens Type", "url": "prodect/lens_type", "description":"Manage different types of lenses.", "image": ""},
 

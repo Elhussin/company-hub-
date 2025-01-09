@@ -9,10 +9,8 @@ $coatings = [
     "Bifocal" => "Bifocal", "Multi" => "Multi Focal"
 ];
 ?>
-
-    <div class="container">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header  bg-info">
                 <h5 class="card-title mb-0">Lens Details</h5>
             </div>
             <div class="card-body">
@@ -73,6 +71,5 @@ $coatings = [
 
             </div>
         </div>
-    </div>
-
-    <script src="static/script/additeam.js"></script>
+ 
+    <!-- <script src="static/script/additeam.js"></script> -->
