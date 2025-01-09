@@ -70,12 +70,12 @@
   // document.getElementById('control_EMAIL').readOnly = true;
 
 function OpenWindow_brand() {
-  window.open('prodect/brand.php',
+  window.open('index.php?page=add_brand',
               'newwindow',
               config='height=670,width=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
 }
 function OpenWindow_lens_type() {
-  window.open('prodect/lens_type.php',
+  window.open('index.php?page=lens_type',
               'newwindow',
               config='height=670,width=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
 }

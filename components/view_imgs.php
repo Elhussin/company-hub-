@@ -34,4 +34,4 @@
     
     ?>
 </div>
-<!-- http://yourdomain.com/index.php?page=profile&imgid=456 -->
+

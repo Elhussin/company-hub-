@@ -1,26 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('../html/icon.html'); ?>
-
-    <title>New Prodect </title>
-
-</head>
-
-<body>
-    <div style="overflow:auto">
-        <div class="menu">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-            <a href="#">Link 4</a>
-        </div>
-
-
+<?php
+require_once 'config.php';
+?>
 
         <div class="main">
 
@@ -100,15 +80,15 @@
                                     style="display:none">
                                     <option value=""></option>
                                     <?php
-                        require_once '../php/dps.php';
+                       
 
-                        $company_lens = $databass->prepare(" SELECT DISTINCT * FROM `users` WHERE ROEL='Agent' AND  cotegray ='lens'  or cotegray='all' ");
+                        $company_lens = $databass->prepare(" SELECT DISTINCT * FROM `company` WHERE ROEL='Agent' AND  cotegray ='lens'  or cotegray='all' ");
                         $company_lens->execute();
 
                         foreach ($company_lens as $view_C_len) {
 
                             // echo '<option value="' .$view["ID"] . '" > ' . $view["ID"] . '-' . $view["NAME"] . '</option>';
-                            echo '<option value="' . $view_C_len["NAME"] . $view_C_len["ID"] . '" > ' . $view_C_len["NAME"] . '</option>';
+                            echo '<option value="' . $view_C_len["name"] . $view_C_len["id"] . '" > ' . $view_C_len["name"] . '</option>';
                         }
                         // echo '<option value="' . $view["NAME"] . $view["ID"] . '" > ' . $view["ID"] . '-' . $view["NAME"] . '</option>';
 
@@ -121,7 +101,7 @@
                                     style="display:none">
                                     <option value=""></option>
                                     <?php
-                        require_once '../php/dps.php';
+                       
 
                         $company_frame = $databass->prepare(" SELECT DISTINCT * FROM `users` WHERE ROEL='Agent' AND  cotegray ='frame'  or cotegray='all' ");
                         $company_frame->execute();
@@ -418,7 +398,7 @@
     // document.getElementById('control_EMAIL').readOnly = true;
 
     function OpenWindow_brand() {
-        window.open('prodect/brand.php',
+        window.open('index.php?page=add_brand',
             'newwindow',
             config =
             'height=670,width=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no'
@@ -426,7 +406,7 @@
     }
 
     function OpenWindow_lens_type() {
-        window.open('prodect/lens_type.php',
+        window.open('index.php?page=lens_type',
             'newwindow',
             config =
             'height=670,width=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no'
@@ -434,7 +414,7 @@
     }
 
     function OpenWindow_newcompany() {
-        window.open('prodect/newcompany.php',
+        window.open('index.php?page=add_company',
             'newwindow',
             config =
             'height=670,width=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no'
@@ -467,44 +447,9 @@
     </script>
 
 
-
-    <!-- <script src="prodect/additeam.js"></script> -->
-
-    <!-- <script src="./additeam.js"></script>
- -->
-
-
-
-
-    <!--  api   script  -->
-    <script>
-    // function send() {
-    //     let getForm = document.getElementById("addnew");
-
-    //     getForm.onsubmit = (form1) => { // لمنع الارسال المياشر الي السيرفر 
-    //         form1.preventDefault();
-    //         let formdata = new FormData(getForm);
-
-    //         fetch(" http://new-worled.eb2a.com/company/api/add_brodect.php", {
-    //             method: 'POST',
-    //             body: formdata
-    //         }).then(response => response.json()).then(data => {
-    //             console.log(data);
-    //             var alert = document.getElementById("alrt")
-    //             alert.style.display = "block";
-    //             alert.innerHTML = '<p class="alert alert-dark" role="alert">' + data.messeg + '<p> ';
-    //         })
-    //     };
-    // }
-    </script>
-</body>
-
-</html>
-
-
 <?php
 if (isset($_POST["brand_name"])) {
-    require_once '../php/dps.php';
+   
   echo   $brand_name = substr($_POST['brand_name'], 0, -4);
   echo "<br>";
   echo   $brandid = substr($_POST['brand_name'], -4);
@@ -514,94 +459,3 @@ if (isset($_POST["company_id_name"])){
   echo  $combany_name = substr($_POST['company_id_name'], 0, -4);
   echo  $combany_id = substr($_POST['company_id_name'], -4);
 }
-    // echo $_POST['brand_name'];
-    // $index = '';
-    // $coted = '';
-    // $lens_type = '';
-    // $type = '';
-    // $company_id='';
-    // $brand_id='';
-    // $descrip = $_POST['lens_type_view'];
-    // $cheakdescrip = $databass->prepare("SELECT * FROM `prodect` WHERE descrip=:descrip");
-    // $cheakdescrip ->bindParam('descrip',$descrip);
-    // $cheakdescrip->execute();
-    // foreach ($cheakdescrip as $view) {
-    // echo    $index =  $view["lens_index"];
-    // echo "<br>";
-    // echo   $coted = $view["lens_cotd"];
-    // echo "<br>";
-    // echo   $lens_type = $view["lens_type"];
-    // echo "<br>";
-    // echo   $type = $view["type"];
-    // echo "<br>";
-    // echo  $company_id=$view["companyID"];
-    // echo "<br>";
-    // echo  $brand_id=$view["brand_id"];
-    // echo "<br>";
-    // }
-
-//     $add_aitem = $databass->prepare("INSERT INTO `prodect`
-//          ( `brand`, `name_s`, `type`, `lens_type`
-//     , `lens_cotger`, `lens_index`, `lens_cotd`, `singl_lens`
-//     , `singl_duble_lens`, `lens_type_view`, `charsph`, `sph`
-//     , `charcyl`, `cyl`, `base_R_L`, `lens_base`, `lens_add`
-
-//     , `made_year`, `modeno`, `color`, `lenswidth`, `arm`, `bridg`
-//     , `count`, `cost`, `ratPrice`, `discoun`, `tax`, `finalPrice`, 
-//     `dateIn`, `comapny`, `madein`, `descrip`,
-//     `companyID`, `brand_id`)
-//      VALUES(:brand,:name_s,:type1,:lens_type,:lens_cotger,:lens_index,:lens_cotd,:singl_lens,
-//   :singl_duble_lens,:lens_type_view,:charsph,:sph,:charcyl,:cyl,:base_R_L,:lens_base,:lens_add,
-//   :made_year,:modeno,:color,:lenswidth,:arm,:bridg,:count1,:cost,:ratPrice,:discoun,:tax,:finalPrice,
-//   :dateIn,:comapny,:madein,:descrip,:company_id,:brand_id)");
-
-//       $add_aitem->bindParam('name_s',$_POST['PRODECT'] ); 
-//       $add_aitem->bindParam('company_id',$company_id);  // error
-
-//     $add_aitem->bindParam('brand',$_POST['brand_name']);
-//     $add_aitem->bindParam('type1', $type); 
-//       $add_aitem->bindParam('lens_type',$lens_type );
-//     $add_aitem->bindParam('lens_index',$index);
-//        $add_aitem->bindParam('lens_cotd',$coted  ); 
-//     $add_aitem->bindParam('brand_id', $brand_id);  // error
-//     $add_aitem->bindParam('lens_cotger', $_POST['cotgery']);  
-//     $add_aitem->bindParam('singl_lens', $_POST['singl_lens']);
-//     $add_aitem->bindParam('singl_duble_lens', $_POST['singl_duble_lens']);
-//     $add_aitem->bindParam('lens_type_view', $_POST['lens_type_view']);
-//     $add_aitem->bindParam('charsph', $_POST['charsph']);
-//     $add_aitem->bindParam('sph', $_POST['sph']);
-//     $add_aitem->bindParam('charcyl', $_POST['charcyl']);
-//     $add_aitem->bindParam('cyl', $_POST['cyl']);
-//     $add_aitem->bindParam('base_R_L', $_POST['base_R_L']);
-//     $add_aitem->bindParam('lens_base', $_POST['lens_base']);
-//     $add_aitem->bindParam('lens_add', $_POST['lens_add']);
-
-//     $add_aitem->bindParam('modeno', $_POST['model']);
-//     $add_aitem->bindParam('made_year', $_POST['made_year']);
-//     $add_aitem->bindParam('color', $_POST['color']);
-//     $add_aitem->bindParam('lenswidth', $_POST['lens']);
-//     $add_aitem->bindParam('arm', $_POST['arm']);
-//     $add_aitem->bindParam('bridg', $_POST['bridg']);
-//     $add_aitem->bindParam('cost', $_POST['cost']);
-//     $add_aitem->bindParam('ratPrice', $_POST['ratel']);
-//     $add_aitem->bindParam('discoun', $_POST['discon']);
-//     $add_aitem->bindParam('tax', $_POST['tax']);
-//     $add_aitem->bindParam('finalPrice', $_POST['final']);
-//     $add_aitem->bindParam('dateIn', $_POST['datein']);
-//     $add_aitem->bindParam('count1', $_POST['count']);   
-//     $add_aitem->bindParam('comapny',$_POST['company_id']);   //error
-//     $add_aitem->bindParam('madein', $_POST['madein']);
-//     $add_aitem->bindParam('descrip', $_POST['lens_type_view']);
-
-//     // $add_aitem->bindParam('serail', $serial);
-
-//     if ($add_aitem->execute()) {
-
-//         print_r(json_encode(array("messeg" => "  New User Add ")));
-//     } else {
-//         var_dump($add_aitem->errorInfo());
-//     }
-
-
-?>
-<?php include('../html/footer.html') ?>

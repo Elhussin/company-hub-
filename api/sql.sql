@@ -10,3 +10,13 @@ CREATE TABLE company (
     ROEL ENUM('User', 'Agent', 'inseranc') NOT NULL,       -- نوع الشركة
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- تاريخ إنشاء السجل
 );
+
+
+CREATE TABLE brand (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    code VARCHAR(50) UNIQUE NOT NULL,
+    company_id INT NOT NULL,
+    FOREIGN KEY (company_id) REFERENCES company(ID)
+);

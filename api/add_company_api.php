@@ -23,6 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // مثال بسيط للتحقق
     if (!empty($name) && !empty($cotegray) && !empty($ROEL)) {
         // إدخال البيانات في قاعدة البيانات (هذا مثال بسيط)
+
+        $sql = "SELECT * FROM company WHERE name = :name AND ROEL = :role";
+        $stmt = $databass->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':role', $ROEL);
+        $stmt->execute();
+        
+        if($stmt->rowCount() > 0){
+            echo json_encode(['message' => 'Company alread add exits!']);
+            exit();
+        }
+        
         $sql = "INSERT INTO company (name,country,tell, fax, email, wep, cotegray, ROEL) VALUES (?, ?, ?,?, ?, ?, ?, ?)";
         $stmt = $databass->prepare($sql);
         $stmt->execute([$name,$country,$tell, $fax, $email, $wep, $cotegray, $ROEL]);
