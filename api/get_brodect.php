@@ -1,9 +1,55 @@
 <?php
 require_once '../config.php';
 
-// جلب جميع المنتجات
-$query = "SELECT * FROM `prodect`";
-$products = $databass->query($query)->fetchAll();
+// تعريف المتغيرات لتخزين القيم التي سيتم استخدامها في الفلاتر
+$select = isset($_GET['select']) ? $_GET['select'] : '';
+$collection = isset($_GET['collection']) ? $_GET['collection'] : '';
+$optian = isset($_GET['optian']) ? $_GET['optian'] : '';
+$max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
+
+// بناء الاستعلام الأساسي
+$query = "SELECT * FROM `prodect` WHERE 1";
+
+// إضافة الشروط بناءً على القيم المستلمة
+if ($select != '') {
+    $query .= " AND (`collection_gendr` = :select OR `collection_gendr` = 'All')";
+}
+
+
+if ($collection != '') {
+    $query .= " AND `collection` = :collection";
+}
+
+if ($optian != '') {
+    $query .= " AND `price` >= :optian";
+}
+
+if ($max_price != '') {
+    $query .= " AND `price` <= :max_price";
+}
+
+// تحضير الاستعلام
+$stmt = $databass->prepare($query);
+
+// ربط القيم بالاستعلام
+if ($select != '') {
+    // $stmt->bindValue(':select', '%' . $select . '%'); // استخدمنا `LIKE` مع النسبة المئوية لتوسيع البحث
+    $stmt->bindValue(':select', $select);
+
+}
+if ($collection != '') {
+    $stmt->bindValue(':collection', $collection);
+}
+if ($optian != '') {
+    $stmt->bindValue(':optian', $optian);
+}
+if ($max_price != '') {
+    $stmt->bindValue(':max_price', $max_price);
+}
+
+// تنفيذ الاستعلام
+$stmt->execute();
+$products = $stmt->fetchAll();
 
  if ($products){
 
@@ -20,6 +66,7 @@ $products = $databass->query($query)->fetchAll();
                             <h5 class="card-title">'. htmlspecialchars($product['PRODECT']).'</h5>
                             <p class="card-text"><strong>Brand:</strong>'. htmlspecialchars($product['brand_id']).'</p>
                             <p class="card-text"><strong>Type:</strong> '. htmlspecialchars($product['cotger']).'</p>
+                            <p class="card-text"><strong>Model No</strong> '. htmlspecialchars($product['model']).'</p>
                             <p class="card-text"><strong>Cost Price:</strong> '. htmlspecialchars($product['cost']).'$</p>
                             <p class="card-text"><strong>Retial Price:</strong> '. htmlspecialchars($product['ratel']).'$</p>
                             <div class="d-flex justify-content-between">

@@ -1,4 +1,4 @@
-
+<div class="bg-light shadow-sm text-xxl-center m-5 p-3"> <h5  id="pageTitle"> All Prodeact</h5>   </div>
 <div id="product-container" class="mt-5">
     <!-- المنتجات ستظهر هنا -->
 </div>
@@ -7,9 +7,18 @@
 
 
 <script>
+
+
+const selectIteam = getٍSelectProductFromUrl();
+const apiUrl = selectIteam ? `api/get_brodect.php?select=${selectIteam}` : "api/get_brodect.php";
+console.log(apiUrl)
+if (selectIteam){
+    document.getElementById("pageTitle").innerHTML=selectIteam.toUpperCase()
+}
+
 // دالة لتحميل المنتجات عبر AJAX
 function loadProducts() {
-    fetch('api/get_brodect.php')  // استخدام ملف PHP المناسب لجلب المنتجات
+    fetch(apiUrl)  // استخدام ملف PHP المناسب لجلب المنتجات
         .then(response => response.text())
         .then(data => {
             document.getElementById('product-container').innerHTML = data;
@@ -18,6 +27,8 @@ function loadProducts() {
             console.error('Error loading products:', error);
         });
 }
+
+// yourpage.php?name=product&type=Lens&min_price=100&max_price=500).
 
 function editProduct(productId) {
     // تحويل المستخدم إلى صفحة add_prodect.php مع إضافة id المنتج كـ Query Parameter
@@ -63,6 +74,12 @@ function deleteProduct(productId) {
 document.addEventListener('DOMContentLoaded', loadProducts);
 
 
+function getٍSelectProductFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  console.log("select",urlParams.get("select"));
+
+  return urlParams.get("select");
+}
 
 
 

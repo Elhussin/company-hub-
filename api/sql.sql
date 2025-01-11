@@ -59,6 +59,25 @@ ON DELETE SET NULL; -- يمكن تغيير هذا الإجراء حسب الحا
 
 
 
+ALTER TABLE prodect
+ADD COLLECTIAN VARCHAR(255) NULL;
+
+ALTER TABLE prodect
+ADD COLUMN collection_gendr VARCHAR(255) DEFAULT 'All', 
+ADD COLUMN collection VARCHAR(255) DEFAULT 'All', 
+ADD COLUMN optian VARCHAR(255) DEFAULT 'All'; 
+
+-- <?php 
+-- try {
+--     $sql = "ALTER TABLE prodect ADD COLLECTIAN VARCHAR(255) NULL";
+--     $databass->exec($sql);
+--     echo "Column COLLECTIAN added successfully!";
+-- } catch (PDOException $e) {
+--     echo "Error: " . $e->getMessage();
+-- }
+-- ?>
+
+
 -- CREATE TABLE prodect (
 --     id INT AUTO_INCREMENT PRIMARY KEY, -- معرف فريد تلقائي
 --     PRODECT VARCHAR(50) NOT NULL, -- نوع المنتج

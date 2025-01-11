@@ -3,10 +3,10 @@ require_once 'config.php';
 
 $coatings = [
     "NOR" => "NOR", "MC" => "MC", "Color" => "Color",
-    "TRN_brown" => "TRN Brown", "TRN_Gray" => "TRN Gray",
-    "blue" => "Blue Ray", "UV" => "UV", "Bolarid" => "Polarid",
-    "POLY" => "POLY Carbon", "singl" => "Single Vision",
-    "Bifocal" => "Bifocal", "Multi" => "Multi Focal"
+    "TRN Brown" => "TRN Brown", "TRN Gray" => "TRN Gray",
+    "Blue Ray" => "Blue Ray", "UV" => "UV", "Polarid" => "Polarid",
+    "POLY Carbon" => "POLY Carbon", "Single Vision" => "Single Vision",
+    "Bifocal" => "Bifocal", "Multi Focal" => "Multi Focal"
 ];
 ?>
         <div class="card">
@@ -51,14 +51,15 @@ $coatings = [
                             <div class="form-group mb-3">
                                 <label class="form-label">Coatings</label>
                                 <div>
-                                    <?php
-
+                                <?php
                                     foreach ($coatings as $key => $value): ?>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="type[]" id="<?php echo $key; ?>" value="<?php echo $value; ?>">
-                                            <label class="form-check-label" for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                                            <!-- استبدال المسافات بـ _ لتحويل المعرف إلى صيغة مناسبة -->
+                                            <input class="form-check-input" type="checkbox" name="type[]" id="type_<?php echo strtolower(str_replace(' ', '_', $key)); ?>" value="<?php echo $value; ?>">
+                                            <label class="form-check-label" for="type_<?php echo strtolower(str_replace(' ', '_', $key)); ?>"><?php echo $value; ?></label>
                                         </div>
                                     <?php endforeach; ?>
+
                                 </div>
                             </div>
 

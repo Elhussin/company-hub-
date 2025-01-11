@@ -28,6 +28,35 @@
             <label for="model" class="font-weight-bold">Model No</label>
             <input class="form-control" name="model" type="text" id="model">
           </div>
+          <div class="form-group ">
+          <label for="made" class="font-weight-bold">Collection Gender</label>
+          <select class="form-control" name="collection_gendr" id="ccollection_gendr">
+                  <option value="all">All</option>
+                  <option value="women">Women</option>
+                  <option value="men">Men</option>
+                  <option value="kids">Kids</option>
+              </select>
+          </div>
+
+          <div class="form-group "> 
+          <label for="made" class="font-weight-bold">Collection</label>
+          <select class="form-control" name="collection" id="collection">
+                  <option value="new">New</option>
+                  <option value="old">Old</option>
+                  <option value="sell">Sell</option>
+                  <option value="last">Last</option>
+              </select>
+          </div>
+          
+          <div class="form-group ">
+          <label for="made" class="font-weight-bold">Type </label>
+          <select class="form-control" name="optian" id="optian">
+                  <option value="un glasses">Sun Glasses</option>
+                  <option value="eye glasses">Eye Glasses</option>
+                  <option value="klip">Klip On</option>
+              </select>
+          </div>
+
           <div class="form-group">
             <label for="made" class="font-weight-bold">Made Year</label>
             <input class="form-control" name="made_year" type="text" id="made">
