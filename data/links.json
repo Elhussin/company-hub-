@@ -16,8 +16,7 @@
     {"title": "View Product", "url": "view_prodect", "description":"View and manage  products in the inventory.", "image": "Update.png"},
     {"title": "Women", "url": "view_prodect&select=women", "description":"Explore and manage frame For women.", "image": ""},
     {"title": "Men", "url": "view_prodect&select=men", "description":"Explore and manage frame For men.", "image": ""},
-    {"title": "Kids", "url": "view_prodect&select=kids", "description":"Browse eyewear designed specifically for kids.", "image": ""},
-
+    {"title": "Kids", "url": "view_prodect&select=kids", "description":"Browse eyewear designed specifically for kids.", "image": "kids.jpg"},
     {"title": "About", "url": "about", "description":"Learn more about the system or company.", "image": "about.jpg"},
     {"title": "Customer", "url": "coustmer", "description":"Manage customer information and interactions.", "image": "coustmer.png"},
     {"title": "Error", "url": "404", "description":"View 404 Page.", "image": "error.png"},
@@ -27,7 +26,6 @@
     {"title": "Login", "url": "login", "description":"Access the system by logging in.", "image": "logoin.jpeg"},
     {"title": "Register", "url": "register", "description":"Create a new account for the system.", "image": "register.jpg"},
     {"title": "Reset", "url": "reset", "description":"Reset your password or account settings.", "image": "rest.png"},
-
     {"title": "Contact Lens", "url": "prodect/contac", "description":"View and manage contact lens products.", "image": ""},
     {"title": "Last", "url": "prodect/last", "description":"View the latest added products.", "image": ""},
     {"title": "Lens", "url": "prodect/lens", "description":"Explore and manage lens options.", "image": ""},
