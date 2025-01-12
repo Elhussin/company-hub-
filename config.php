@@ -11,8 +11,13 @@ $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 
-define('ROOT_PATH', 'http://localhost/company/');
-define('STATIC_PATH', 'http://localhost/company/static/');
+// define('ROOT_PATH', 'http://localhost/company/');
+// define('STATIC_PATH', 'http://localhost/company/static/');
+
+
+define('ROOT_PATH', 'http://company-hub.infy.uk/');
+define('STATIC_PATH', 'http://company-hub.infy.uk/static/');
+
 
 // إعدادات الاتصال بقاعدة البيانات
 define('DB_HOST', $_ENV['DB_HOST']);
@@ -37,7 +42,7 @@ try {
 }
 
 function asset($path='') {
-    return 'http://localhost/company/' . $path;
+    return 'http://company-hub.infy.uk/' . $path;
 }
 ?>
 

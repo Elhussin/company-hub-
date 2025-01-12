@@ -5,7 +5,7 @@ require_once '../config.php';
 $select = isset($_GET['select']) ? $_GET['select'] : '';
 $collection = isset($_GET['collection']) ? $_GET['collection'] : '';
 $optian = isset($_GET['optian']) ? $_GET['optian'] : '';
-$max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
+$PRODECT = isset($_GET['PRODECT']) ? $_GET['PRODECT'] : '';
 
 // بناء الاستعلام الأساسي
 $query = "SELECT * FROM `prodect` WHERE 1";
@@ -17,15 +17,15 @@ if ($select != '') {
 
 
 if ($collection != '') {
-    $query .= " AND `collection` = :collection";
+    $query .= " AND  (`collection` = :collection OR `collection` = 'All')";
 }
 
 if ($optian != '') {
-    $query .= " AND `price` >= :optian";
+    $query .= " AND (`optian` = :optian OR `optian` = 'All')";
 }
 
-if ($max_price != '') {
-    $query .= " AND `price` <= :max_price";
+if ($PRODECT != '') {
+    $query .= " AND  (`PRODECT` = :PRODECT OR `PRODECT` = 'All')";
 }
 
 // تحضير الاستعلام
@@ -43,8 +43,8 @@ if ($collection != '') {
 if ($optian != '') {
     $stmt->bindValue(':optian', $optian);
 }
-if ($max_price != '') {
-    $stmt->bindValue(':max_price', $max_price);
+if ($PRODECT != '') {
+    $stmt->bindValue(':PRODECT', $PRODECT);
 }
 
 // تنفيذ الاستعلام

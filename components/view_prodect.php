@@ -1,19 +1,22 @@
+
+<div class="min-vh-100">
 <div class="bg-light shadow-sm text-xxl-center m-5 p-3"> <h5  id="pageTitle"> All Prodeact</h5>   </div>
 <div id="product-container" class="mt-5">
     <!-- المنتجات ستظهر هنا -->
 </div>
 
-
+</div>
 
 
 <script>
 
 
 const selectIteam = getٍSelectProductFromUrl();
-const apiUrl = selectIteam ? `api/get_brodect.php?select=${selectIteam}` : "api/get_brodect.php";
+console.log(selectIteam)
+const apiUrl = selectIteam ? `api/get_brodect.php?${selectIteam[0]}=${selectIteam[1]}` : "api/get_brodect.php";
 console.log(apiUrl)
 if (selectIteam){
-    document.getElementById("pageTitle").innerHTML=selectIteam.toUpperCase()
+    document.getElementById("pageTitle").innerHTML=selectIteam[1].toUpperCase()
 }
 
 // دالة لتحميل المنتجات عبر AJAX
@@ -76,7 +79,26 @@ document.addEventListener('DOMContentLoaded', loadProducts);
 
 function getٍSelectProductFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
-  console.log("select",urlParams.get("select"));
+  const select  = urlParams.get("select");
+  const collection = urlParams.get("collection");
+ const optian = urlParams.get("optian");
+ const PRODECT = urlParams.get("PRODECT");
+  if (select){
+    return ['select',select]
+  }
+  if (collection){
+    return ['collection',collection]
+  }
+  if (optian){
+    return ['optian',optian]
+  }
+  if (PRODECT){
+    return ['PRODECT',PRODECT]
+  }
+  
+  
+
+  
 
   return urlParams.get("select");
 }

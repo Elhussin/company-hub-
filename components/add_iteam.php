@@ -42,20 +42,21 @@
           <label for="made" class="font-weight-bold">Collection</label>
           <select class="form-control" name="collection" id="collection">
                   <option value="new">New</option>
-                  <option value="old">Old</option>
+                  <option value="old">Old</option> 
                   <option value="sell">Sell</option>
-                  <option value="last">Last</option>
+                  <option value="last">Top seller</option>
               </select>
           </div>
           
           <div class="form-group ">
           <label for="made" class="font-weight-bold">Type </label>
           <select class="form-control" name="optian" id="optian">
-                  <option value="un glasses">Sun Glasses</option>
-                  <option value="eye glasses">Eye Glasses</option>
-                  <option value="klip">Klip On</option>
+                  <option value="sun_glasses">Sun Glasses</option> 
+                  <option value="eye_glasses">Eye Glasses</option>
+                  <option value="klip_on">Klip On</option>
               </select>
           </div>
+          
 
           <div class="form-group">
             <label for="made" class="font-weight-bold">Made Year</label>

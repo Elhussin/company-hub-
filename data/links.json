@@ -5,18 +5,25 @@
     {"title": "Users Messages", "url": "view_users_message", "description":"Vies messages from users.", "image": "message.png"},
     {"title": "Uploud File", "url": "add_img", "description":"Submit files using forms.", "image": "uplod.png"},
     {"title": "View Image", "url": "view_imgs", "description":"Browse and view uploaded images.", "image": "imges.png"},
-    {"title": "Add Main View", "url": "add_view", "description":"View details and data related to the system.", "image": "home.jpeg"},
-    {"title": "Updtae Main View ", "url": "edit_view", "description":"Control and manage main view settings.", "image": "home.jpeg"},
-    {"title": "Home", "url": "home", "description":"Navigate to the main homepage.", "image": "home.jpeg"},
+    {"title": "Add Main View", "url": "add_view", "description":"View details and data related to the system.", "image": "home.jpg"},
+    {"title": "Updtae Main View ", "url": "edit_view", "description":"Control and manage main view settings.", "image": "home.jpg"},
+    {"title": "Home", "url": "home", "description":"Navigate to the main homepage.", "image": "home.jpg"},
     {"title": "New Company", "url": "add_company", "description":"Add and manage company details.", "image": "add.png"},
     {"title": "View Company", "url": "view_company", "description":"View and manage all company details.", "image": "update.png"},
     {"title": "New Brand", "url": "add_brand", "description":"Add new product brands.", "image": "add.png"},
     {"title": "Viw Brand", "url": "view_brand", "description":"Manage and view product brands.", "image": "update.png"},
+    
     {"title": "New Product", "url": "add_prodect", "description":"Add and manage new products in the inventory.", "image": "add.png"},
     {"title": "View Product", "url": "view_prodect", "description":"View and manage  products in the inventory.", "image": "Update.png"},
-    {"title": "Women", "url": "view_prodect&select=women", "description":"Explore and manage frame For women.", "image": ""},
-    {"title": "Men", "url": "view_prodect&select=men", "description":"Explore and manage frame For men.", "image": ""},
+    {"title": "Women", "url": "view_prodect&select=women", "description":"Explore and manage frame For women.", "image": "eyeglass.jpg"},
+    {"title": "Men", "url": "view_prodect&select=men", "description":"Explore and manage frame For men.", "image": "eyeglass.jpg"},
     {"title": "Kids", "url": "view_prodect&select=kids", "description":"Browse eyewear designed specifically for kids.", "image": "kids.jpg"},
+    {"title": "New Collection", "url": "view_prodect&collection=new", "description":"Explore and view New Collection.", "image": "collection.png"},
+    {"title": "Offers ", "url": "view_prodect&collection=sell", "description":"Explore and view Offers.", "image": "collection.png"},
+    {"title": "Top Seller ", "url": "view_prodect&collection=last", "description":"Explore and view Top seller Collection.", "image": "collection.png"},
+    {"title": "Classic Collection", "url": "view_prodect&collection=old", "description":"Explore and view Clasic Collection.", "image": "collection.png"},
+
+    
     {"title": "About", "url": "about", "description":"Learn more about the system or company.", "image": "about.jpg"},
     {"title": "Customer", "url": "coustmer", "description":"Manage customer information and interactions.", "image": "coustmer.png"},
     {"title": "Error", "url": "404", "description":"View 404 Page.", "image": "error.png"},
@@ -25,11 +32,7 @@
     {"title": "Contact", "url": "contact", "description":"Contact Us .", "image": "contact.jpeg"},
     {"title": "Login", "url": "login", "description":"Access the system by logging in.", "image": "logoin.jpeg"},
     {"title": "Register", "url": "register", "description":"Create a new account for the system.", "image": "register.jpg"},
-    {"title": "Reset", "url": "reset", "description":"Reset your password or account settings.", "image": "rest.png"},
-    {"title": "Contact Lens", "url": "prodect/contac", "description":"View and manage contact lens products.", "image": ""},
-    {"title": "Last", "url": "prodect/last", "description":"View the latest added products.", "image": ""},
-    {"title": "Lens", "url": "prodect/lens", "description":"Explore and manage lens options.", "image": ""},
-    {"title": "Lens Type", "url": "prodect/lens_type", "description":"Manage different types of lenses.", "image": ""}
+    {"title": "Reset", "url": "reset", "description":"Reset your password or account settings.", "image": "rest.png"}
 
 
 ]
