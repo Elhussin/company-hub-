@@ -1,8 +1,6 @@
-
 <?php
 include_once 'config.php';
 $data = json_decode(file_get_contents('data/links.json'), true);
-
 ?>
 <div class="container mt-5">
     <h2 class="text-center mb-4">Control Panel</h2>

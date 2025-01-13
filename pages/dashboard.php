@@ -6,24 +6,19 @@ if (!isset($_SESSION['user'])) {
 }
 
 $user = $_SESSION['user'];
-// echo '<pre>';
-// print_r($_SESSION['user']);
-
-// echo "ID: " . $user-> ID;
-
-
-// echo '</pre>';
-// id	userid	file_name	name	description	uploaded_on	status
 
 if ($user->ROEL === "USER") {
     
     // منطق المستخدم العادي
-    include 'coustmer.php';
+    // include 'coustmer.php';
+    include __DIR__ . '/coustmer.php';
+
     echo "مرحبًا، مستخدم!";
 } elseif ($user->ROEL === "ADMIN") {
     // منطق المسؤول
-    include 'admin.php';
-    
+    // include 'admin.php';
+    include __DIR__ . '/admin.php';
+
 
 } elseif ($user->ROEL === "coust") {
     // منطق العميل

@@ -1,6 +1,8 @@
 <?php
-// session_start();
-ob_start();  // بدء التخزين المؤقت للمخرجات
+ob_start();  
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 include_once 'config.php';
 
@@ -13,24 +15,10 @@ if (isset($_POST['login'])) {
     $login->execute();
     if ($login->rowCount() === 1) {
         $user = $login->fetchObject();
-
-        if ($user->ACTIEV === "1") {
-
+        if ($user->ACTIEV === 1) {
             $_SESSION['user'] = $user;
-            // $_SESSION['user'] = [
-            //     'name' => 'John Doe',
-            //     'role' => 'ADMIN', // أو USER حسب الدور
-            // ];
             header("Location: index.php?page=dashboard");
-
             exit();
-
-
-
-            // $_SESSION['user'] = $user;
-            // header("Location: pages/dashboard.php", true);
-
-            // exit();
         }
     } else {
         echo '<div class="alert alert-danger" role="alert">
@@ -39,10 +27,7 @@ if (isset($_POST['login'])) {
     }
 }
 ob_end_flush();  // إنهاء التخزين المؤقت للمخرجات بعد تنفيذ كل شيء
-
 ?>
-
-
 <section class="gradient-form">
     <div class="container py-5 ">
         <div class="row d-flex justify-content-center align-items-center ">

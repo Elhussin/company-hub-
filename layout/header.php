@@ -1,9 +1,8 @@
 <?php
+ob_start();  // بدء التخزين المؤقت للمخرجات
 session_start();
-?>
-<?php 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/company/config.php';
-// nav.php
+
 $siteName = "Company Hub";
 ?>
 <!DOCTYPE html>
@@ -28,18 +27,7 @@ $siteName = "Company Hub";
     <meta name="description" content="<?php echo $description; ?>">
 
 </head>
-</head>
-
-<!-- {"title": "View Product", "url": "view_prodect", "description":"View and manage  products in the inventory.", "image": "Update.png"},
-    {"title": "Women", "url": "view_prodect&select=women", "description":"Explore and manage frame For women.", "image": ""},
-    {"title": "Men", "url": "view_prodect&select=men", "description":"Explore and manage frame For men.", "image": ""},
-    {"title": "Kids", "url": "view_prodect&select=kids", "description":"Browse eyewear designed specifically for kids.", "image": "kids.jpg"},
-    
-    {"title": "New Collection", "url": "view_prodect&collection=new", "description":"Explore and view New Collection.", "image": "collection.png"},
-    {"title": "Offers ", "url": "view_prodect&collection=sell", "description":"Explore and view Offers.", "image": "collection.png"},
-    {"title": "Top Seller ", "url": "view_prodect&collection=last", "description":"Explore and view Top seller Collection.", "image": "collection.png"},
-    {"title": "Classic Collection", "url": "view_prodect&collection=old", "description":"Explore and view Clasic Collection.", "image": "collection.png"},
- -->
+</head>`    
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
